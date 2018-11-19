@@ -1,0 +1,30 @@
+# This file is responsible for configuring your application
+# and its dependencies with the aid of the Mix.Config module.
+#
+# This configuration file is loaded before any dependency and
+# is restricted to this project.
+
+# General application configuration
+use Mix.Config
+
+config :ar_weekly_blog,
+  ecto_repos: [ArWeeklyBlog.Repo]
+
+# Configures the endpoint
+config :ar_weekly_blog, ArWeeklyBlogWeb.Endpoint,
+  url: [host: "localhost"],
+  secret_key_base: "G+NqrwDqi0na+huX0gi8Ailyb7SfPo19LDUKQvo8D8Cgg65b2I+vG4vIBptZEHf8",
+  render_errors: [view: ArWeeklyBlogWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: ArWeeklyBlog.PubSub, adapter: Phoenix.PubSub.PG2]
+
+# Configures Elixir's Logger
+config :logger, :console,
+  format: "$time $metadata[$level] $message\n",
+  metadata: [:request_id]
+
+# Use Jason for JSON parsing in Phoenix
+config :phoenix, :json_library, Jason
+
+# Import environment specific config. This must remain at the bottom
+# of this file so it overrides the configuration defined above.
+import_config "#{Mix.env()}.exs"
