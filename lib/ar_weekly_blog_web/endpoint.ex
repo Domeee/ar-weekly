@@ -1,10 +1,6 @@
 defmodule ArWeeklyBlogWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :ar_weekly_blog
 
-  socket "/socket", ArWeeklyBlogWeb.UserSocket,
-    websocket: true,
-    longpoll: false
-
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phx.digest
