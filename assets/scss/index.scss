@@ -1,0 +1,193 @@
+@import "./variables";
+@import "./viewport";
+
+html {
+  font-family: $font-primary;
+  font-size: 62.5%;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 3.2rem;
+  margin: 4rem 2rem;
+}
+
+main {
+  @include mobile {
+    max-width: $breakpoint-mobile;
+  }
+  @include tablet {
+    max-width: $breakpoint-tablet;
+  }
+  @include desktop {
+    max-width: $breakpoint-tablet;
+  }
+
+  margin: 0 auto;
+  margin-bottom: 4rem;
+}
+
+footer {
+  text-align: center;
+  color: #fff;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: $color-accent1;
+}
+
+h1 {
+  color: $color-primary;
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+}
+
+h2 {
+  color: $color-primary;
+  font-size: 2rem;
+  line-height: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  color: $color-primary;
+  font-size: 1.8rem;
+  line-height: 2.7rem;
+  margin-bottom: 0.9rem;
+}
+
+section {
+  margin-bottom: 4rem;
+}
+
+p {
+  margin-bottom: 1.6rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 4rem;
+
+  @include mobile {
+    height: 125px;
+  }
+  @include tablet {
+    height: 200px;
+  }
+  @include desktop {
+    height: 200px;
+  }
+}
+
+header img {
+  @include mobile {
+    width: 125px;
+  }
+  @include tablet {
+    width: 200px;
+  }
+  @include desktop {
+    width: 200px;
+  }
+}
+
+.value-prop {
+  font-size: 3rem;
+  line-height: 4.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.how-to {
+  max-width: 512px;
+  margin: 0 auto;
+  margin-bottom: 4rem;
+  font-size: 2rem;
+  line-height: 3rem;
+  text-align: center;
+}
+
+.cta {
+  margin-bottom: 8rem;
+  font-size: 2rem;
+}
+
+.cta form {
+  display: flex;
+  justify-content: center;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.cta-input {
+  display: flex;
+  flex-direction: column;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  @include tablet {
+    margin-right: 2rem;
+  }
+  @include desktop {
+    margin-right: 2rem;
+  }
+}
+
+.cta-input-success {
+  color: $color-accent2;
+}
+
+.cta-input-hidden {
+  height: 0;
+  width: 0;
+}
+
+.cta-input input {
+  font: inherit;
+  padding: 1rem 1rem;
+  line-height: normal;
+}
+
+.cta-input span {
+  padding: 1rem 1rem;
+  font-size: 1.4rem;
+  color: $color-accent1;
+}
+
+.cta-button {
+  display: flex;
+  flex-direction: column;
+}
+
+.cta-button button {
+  background-color: $color-accent1;
+  border: 2px solid $color-accent1;
+  color: #fff;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  font: inherit;
+  font-weight: bold;
+  line-height: normal;
+}
+
+.cta-button a {
+  font-size: 1rem;
+}
+
+.cta-button button:hover,
+button:focus {
+  background-color: lighten($color: $color-accent1, $amount: 10%);
+}

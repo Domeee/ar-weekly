@@ -17,6 +17,7 @@ defmodule ArWeeklyBlogWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/privacy", PageController, :privacy
     post "/subscribe", PageController, :subscribe
     get "/confirm_subscription/:subscriber", PageController, :confirm_subscription
   end

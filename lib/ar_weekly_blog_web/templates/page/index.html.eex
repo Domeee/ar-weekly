@@ -10,7 +10,7 @@
     <div class="cta-input-hidden">
       <%= checkbox f, :is_robot %>
     </div>
-    <div class="cta-button"><%= submit "Subscribe" %></div>
+    <div class="cta-button"><%= submit "Subscribe" %><a href="/privacy">We care about your privacy and hate spam!</a> </div>
   <% end %>
   <%= if @changeset.valid? do %>
     <div class="cta-input-success">

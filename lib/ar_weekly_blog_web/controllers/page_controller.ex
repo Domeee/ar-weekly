@@ -8,6 +8,10 @@ defmodule ArWeeklyBlogWeb.PageController do
     render(conn, "index.html", changeset: changeset)
   end
 
+  def privacy(conn, _params) do
+    render(conn, "privacy.html")
+  end
+
   def subscribe(conn, %{"subscriber_params" => subscriber}) do
     changeset = SubscriberParams.changeset(%SubscriberParams{}, subscriber)
 
