@@ -1,12 +1,12 @@
-defmodule ArWeeklyBlog.Subscribers do
+defmodule ArWeekly.Subscribers do
   @moduledoc """
   The Subscribers context.
   """
 
   import Ecto.Query, warn: false
-  alias ArWeeklyBlog.Repo
+  alias ArWeekly.Repo
 
-  alias ArWeeklyBlog.Subscribers.Subscriber
+  alias ArWeekly.Subscribers.Subscriber
 
   @doc """
   Returns the list of subscribers.

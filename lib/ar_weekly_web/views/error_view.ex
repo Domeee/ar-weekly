@@ -1,5 +1,5 @@
-defmodule ArWeeklyBlogWeb.ErrorView do
-  use ArWeeklyBlogWeb, :view
+defmodule ArWeeklyWeb.ErrorView do
+  use ArWeeklyWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

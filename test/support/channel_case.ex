@@ -1,4 +1,4 @@
-defmodule ArWeeklyBlogWeb.ChannelCase do
+defmodule ArWeeklyWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,15 +21,15 @@ defmodule ArWeeklyBlogWeb.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint ArWeeklyBlogWeb.Endpoint
+      @endpoint ArWeeklyWeb.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(ArWeeklyBlog.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(ArWeekly.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(ArWeeklyBlog.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(ArWeekly.Repo, {:shared, self()})
     end
 
     :ok

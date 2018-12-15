@@ -1,4 +1,4 @@
-defmodule ArWeeklyBlog.Subscribers.Subscriber do
+defmodule ArWeekly.Subscribers.Subscriber do
   use Ecto.Schema
   import Ecto.Changeset
 

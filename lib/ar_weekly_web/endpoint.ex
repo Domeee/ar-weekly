@@ -1,5 +1,5 @@
-defmodule ArWeeklyBlogWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :ar_weekly_blog
+defmodule ArWeeklyWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :ar_weekly
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -7,7 +7,7 @@ defmodule ArWeeklyBlogWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :ar_weekly_blog,
+    from: :ar_weekly,
     gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
@@ -35,8 +35,8 @@ defmodule ArWeeklyBlogWeb.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   plug Plug.Session,
     store: :cookie,
-    key: "_ar_weekly_blog_key",
+    key: "_ar_weekly_key",
     signing_salt: "2Bb+lJLP"
 
-  plug ArWeeklyBlogWeb.Router
+  plug ArWeeklyWeb.Router
 end

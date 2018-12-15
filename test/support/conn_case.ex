@@ -1,4 +1,4 @@
-defmodule ArWeeklyBlogWeb.ConnCase do
+defmodule ArWeeklyWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -19,18 +19,18 @@ defmodule ArWeeklyBlogWeb.ConnCase do
     quote do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
-      alias ArWeeklyBlogWeb.Router.Helpers, as: Routes
+      alias ArWeeklyWeb.Router.Helpers, as: Routes
 
       # The default endpoint for testing
-      @endpoint ArWeeklyBlogWeb.Endpoint
+      @endpoint ArWeeklyWeb.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(ArWeeklyBlog.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(ArWeekly.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(ArWeeklyBlog.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(ArWeekly.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}

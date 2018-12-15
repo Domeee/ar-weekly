@@ -6,7 +6,7 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :ar_weekly_blog, ArWeeklyBlogWeb.Endpoint,
+config :ar_weekly, ArWeeklyWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -46,13 +46,13 @@ config :ar_weekly_blog, ArWeeklyBlogWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :ar_weekly_blog, ArWeeklyBlogWeb.Endpoint,
+config :ar_weekly, ArWeeklyWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
-      ~r{lib/ar_weekly_blog_web/views/.*(ex)$},
-      ~r{lib/ar_weekly_blog_web/templates/.*(eex)$}
+      ~r{lib/ar_weekly_web/views/.*(ex)$},
+      ~r{lib/ar_weekly_web/templates/.*(eex)$}
     ]
   ]
 
@@ -67,10 +67,10 @@ config :phoenix, :stacktrace_depth, 20
 config :phoenix, :plug_init_mode, :runtime
 
 # Configure your database
-config :ar_weekly_blog, ArWeeklyBlog.Repo,
+config :ar_weekly, ArWeekly.Repo,
   username: "postgres",
   password: "postgres",
-  database: "ar_weekly_blog_dev",
+  database: "ar_weekly_dev",
   hostname: "localhost",
   pool_size: 10
 

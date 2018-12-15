@@ -7,15 +7,15 @@
 # General application configuration
 use Mix.Config
 
-config :ar_weekly_blog,
-  ecto_repos: [ArWeeklyBlog.Repo]
+config :ar_weekly,
+  ecto_repos: [ArWeekly.Repo]
 
 # Configures the endpoint
-config :ar_weekly_blog, ArWeeklyBlogWeb.Endpoint,
+config :ar_weekly, ArWeeklyWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "G+NqrwDqi0na+huX0gi8Ailyb7SfPo19LDUKQvo8D8Cgg65b2I+vG4vIBptZEHf8",
-  render_errors: [view: ArWeeklyBlogWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: ArWeeklyBlog.PubSub, adapter: Phoenix.PubSub.PG2]
+  render_errors: [view: ArWeeklyWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: ArWeekly.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,

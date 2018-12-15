@@ -1,11 +1,11 @@
-defmodule ArWeeklyBlogWeb.Gettext do
+defmodule ArWeeklyWeb.Gettext do
   @moduledoc """
   A module providing Internationalization with a gettext-based API.
 
   By using [Gettext](https://hexdocs.pm/gettext),
   your module gains a set of macros for translations, for example:
 
-      import ArWeeklyBlogWeb.Gettext
+      import ArWeeklyWeb.Gettext
 
       # Simple translation
       gettext("Here is the string to translate")
@@ -20,5 +20,5 @@ defmodule ArWeeklyBlogWeb.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :ar_weekly_blog
+  use Gettext, otp_app: :ar_weekly
 end

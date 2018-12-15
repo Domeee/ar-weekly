@@ -1,9 +1,9 @@
-defmodule ArWeeklyBlog.MixProject do
+defmodule ArWeekly.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :ar_weekly_blog,
+      app: :ar_weekly,
       version: "0.1.0",
       elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -19,7 +19,7 @@ defmodule ArWeeklyBlog.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {ArWeeklyBlog.Application, []},
+      mod: {ArWeekly.Application, []},
       extra_applications: [:logger, :runtime_tools, :bamboo]
     ]
   end

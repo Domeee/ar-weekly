@@ -1,7 +1,7 @@
-defmodule ArWeeklyBlogWeb.PageController do
-  use ArWeeklyBlogWeb, :controller
-  alias ArWeeklyBlogEmail.EmailService
-  alias ArWeeklyBlogWeb.SubscriberParams
+defmodule ArWeeklyWeb.PageController do
+  use ArWeeklyWeb, :controller
+  alias ArWeeklyEmail.EmailService
+  alias ArWeeklyWeb.SubscriberParams
 
   def index(conn, _params) do
     changeset = SubscriberParams.changeset(%SubscriberParams{}, %{})
@@ -24,7 +24,7 @@ defmodule ArWeeklyBlogWeb.PageController do
 
   def confirm_subscription(conn, %{"subscriber" => subscriber}) do
     email = Cipher.decrypt(subscriber)
-    ArWeeklyBlog.Subscribers.create_subscriber(%{email: email})
+    ArWeekly.Subscribers.create_subscriber(%{email: email})
     render(conn, "index.html")
   end
 end

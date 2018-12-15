@@ -1,4 +1,4 @@
-defmodule ArWeeklyBlogEmail.EmailService do
+defmodule ArWeeklyEmail.EmailService do
   import Bamboo.Email
 
   def send_confirmation_email(recipient) do
@@ -23,15 +23,25 @@ defmodule ArWeeklyBlogEmail.EmailService do
       AR Weekly
     """
 
+    send_email(
+      recipient,
+      "hello@ar-weekly.blog",
+      "Please confirm you AR Weekly subscription",
+      html,
+      text
+    )
+  end
+
+  def send_email(recipient, from, subject, html_body, text_body) do
     email =
       new_email(
         to: recipient,
-        from: "hello@ar-weekly.blog",
-        subject: "Please confirm you AR Weekly subscription",
-        html_body: html,
-        text_body: text
+        from: from,
+        subject: subject,
+        html_body: html_body,
+        text_body: text_body
       )
 
-    ArWeeklyBlogEmail.Mailer.deliver_now(email)
+    ArWeeklyEmail.Mailer.deliver_now(email)
   end
 end

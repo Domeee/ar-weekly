@@ -1,4 +1,4 @@
-defmodule ArWeeklyBlog.Repo.Migrations.CreateSubscribers do
+defmodule ArWeekly.Repo.Migrations.CreateSubscribers do
   use Ecto.Migration
 
   def change do

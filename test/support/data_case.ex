@@ -1,4 +1,4 @@
-defmodule ArWeeklyBlog.DataCase do
+defmodule ArWeekly.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -16,20 +16,20 @@ defmodule ArWeeklyBlog.DataCase do
 
   using do
     quote do
-      alias ArWeeklyBlog.Repo
+      alias ArWeekly.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import ArWeeklyBlog.DataCase
+      import ArWeekly.DataCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(ArWeeklyBlog.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(ArWeekly.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(ArWeeklyBlog.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(ArWeekly.Repo, {:shared, self()})
     end
 
     :ok

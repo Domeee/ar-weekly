@@ -1,6 +1,6 @@
-defmodule ArWeeklyBlog do
+defmodule ArWeekly do
   @moduledoc """
-  ArWeeklyBlog keeps the contexts that define your domain
+  ArWeekly keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

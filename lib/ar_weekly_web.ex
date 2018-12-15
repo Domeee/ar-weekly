@@ -1,12 +1,12 @@
-defmodule ArWeeklyBlogWeb do
+defmodule ArWeeklyWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use ArWeeklyBlogWeb, :controller
-      use ArWeeklyBlogWeb, :view
+      use ArWeeklyWeb, :controller
+      use ArWeeklyWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,19 +19,19 @@ defmodule ArWeeklyBlogWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: ArWeeklyBlogWeb
+      use Phoenix.Controller, namespace: ArWeeklyWeb
 
       import Plug.Conn
-      import ArWeeklyBlogWeb.Gettext
-      alias ArWeeklyBlogWeb.Router.Helpers, as: Routes
+      import ArWeeklyWeb.Gettext
+      alias ArWeeklyWeb.Router.Helpers, as: Routes
     end
   end
 
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/ar_weekly_blog_web/templates",
-        namespace: ArWeeklyBlogWeb
+        root: "lib/ar_weekly_web/templates",
+        namespace: ArWeeklyWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
@@ -39,9 +39,9 @@ defmodule ArWeeklyBlogWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import ArWeeklyBlogWeb.ErrorHelpers
-      import ArWeeklyBlogWeb.Gettext
-      alias ArWeeklyBlogWeb.Router.Helpers, as: Routes
+      import ArWeeklyWeb.ErrorHelpers
+      import ArWeeklyWeb.Gettext
+      alias ArWeeklyWeb.Router.Helpers, as: Routes
     end
   end
 
@@ -56,7 +56,7 @@ defmodule ArWeeklyBlogWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import ArWeeklyBlogWeb.Gettext
+      import ArWeeklyWeb.Gettext
     end
   end
 

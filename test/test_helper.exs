@@ -1,2 +1,2 @@
 ExUnit.start()
-Ecto.Adapters.SQL.Sandbox.mode(ArWeeklyBlog.Repo, :manual)
+Ecto.Adapters.SQL.Sandbox.mode(ArWeekly.Repo, :manual)

@@ -1,5 +1,5 @@
-defmodule ArWeeklyBlogWeb.Router do
-  use ArWeeklyBlogWeb, :router
+defmodule ArWeeklyWeb.Router do
+  use ArWeeklyWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,7 +13,7 @@ defmodule ArWeeklyBlogWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", ArWeeklyBlogWeb do
+  scope "/", ArWeeklyWeb do
     pipe_through :browser
 
     get "/", PageController, :index
