@@ -2,7 +2,7 @@
 <div class="how-to">AR Weekly is a curated list of the most relevant augmented reality news from the week. Sent to your inbox every monday.</div>
 <div class="cta">
 <%= form_for @changeset, Routes.page_path(@conn, :subscribe), fn f -> %>
-  <%= if not @changeset.valid? do %>
+  <%= if not @changeset.valid? and not @is_subscribed do %>
     <div class="cta-input">
       <%= email_input f, :email, [placeholder: "Your email...", required: true] %>
       <%= error_tag f, :email %>
@@ -15,6 +15,11 @@
   <%= if @changeset.valid? do %>
     <div class="cta-input-success">
       <div>Thank you very much for your subscription! Please check your inbox and confirm your email address.</div>
+    </div>
+  <% end %>
+  <%= if @is_subscribed do %>
+    <div class="cta-input-success">
+      <div>You're all set up! We just sent the latest issue of the AR Weekly Newsletter to your Inbox. Enjoy!</div>
     </div>
   <% end %>
 <% end %>

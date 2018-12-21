@@ -1,0 +1,1 @@
+<img src="<%= Routes.static_path(@conn, "/images/meme.jpg") %>" alt="CU">

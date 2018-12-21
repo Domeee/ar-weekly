@@ -16,3 +16,5 @@ config :ar_weekly, ArWeekly.Repo,
   database: "ar_weekly_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :ar_weekly, ArWeekly.Mailer, adapter: Bamboo.TestAdapter

@@ -8,34 +8,20 @@ defmodule ArWeekly.Subscribers do
 
   alias ArWeekly.Subscribers.Subscriber
 
-  @doc """
-  Returns the list of subscribers.
-
-  ## Examples
-
-      iex> list_subscribers()
-      [%Subscriber{}, ...]
-
-  """
-  def list_subscribers do
-    Repo.all(Subscriber)
+  def list_active() do
+    query = from(s in Subscriber, where: s.is_active)
+    Repo.all(query)
   end
 
-  @doc """
-  Gets a single subscriber.
+  def list_active_betas() do
+    query = from(s in Subscriber, where: s.is_active and s.is_beta)
+    Repo.all(query)
+  end
 
-  Raises `Ecto.NoResultsError` if the Subscriber does not exist.
-
-  ## Examples
-
-      iex> get_subscriber!(123)
-      %Subscriber{}
-
-      iex> get_subscriber!(456)
-      ** (Ecto.NoResultsError)
-
-  """
-  def get_subscriber!(id), do: Repo.get!(Subscriber, id)
+  def get_by_email!(email) do
+    query = from(s in Subscriber, where: s.email == ^email)
+    Repo.one!(query)
+  end
 
   @doc """
   Creates a subscriber.
@@ -73,32 +59,35 @@ defmodule ArWeekly.Subscribers do
     |> Repo.update()
   end
 
-  @doc """
-  Deletes a Subscriber.
+  def send_confirmation_email(recipient) do
+    rec_enc = ArWeekly.EmailService.arweekly_encode(recipient)
+    url = ArWeeklyWeb.Endpoint.url()
 
-  ## Examples
+    html = """
+    <table style="font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: 16px;line-height: 24px;color: rgba(0, 0, 0, 0.8);">
+      <tr><td><h1 style="margin: 0;font-size: 22px;font-weight: bold;color: #2c3e50;">AR Weekly</h1></td></tr>
+      <tr><td><p>You receive this Email because you subscribed to the AR Weekly Blog. To complete your subscription please confirm you email address by clicking on the following link:</p></td></tr>
+      <tr><td><p><a href="#{url}/confirm_subscription/#{rec_enc}" style="color: #ca3827;">#{url}/confirm_subscription/#{
+      rec_enc
+    }</a></p></td></tr>
+      <tr><td><p>Thank you and best regards<br><span style="color: #2c3e50;"><strong>AR</strong>&nbsp;Weekly</span></p></td></tr>
+    </table>
+    """
 
-      iex> delete_subscriber(subscriber)
-      {:ok, %Subscriber{}}
+    text = """
+      AR Weekly\r\n\r\n
+      You receive this Email because you subscribed to the AR Weekly Blog. To complete your subscription please confirm you email address by clicking on the following link:\r\n
+      #{url}/confirm_subscription/#{rec_enc}\r\n\r\n
+      Thank you and best regards\r\n
+      AR Weekly
+    """
 
-      iex> delete_subscriber(subscriber)
-      {:error, %Ecto.Changeset{}}
-
-  """
-  def delete_subscriber(%Subscriber{} = subscriber) do
-    Repo.delete(subscriber)
-  end
-
-  @doc """
-  Returns an `%Ecto.Changeset{}` for tracking subscriber changes.
-
-  ## Examples
-
-      iex> change_subscriber(subscriber)
-      %Ecto.Changeset{source: %Subscriber{}}
-
-  """
-  def change_subscriber(%Subscriber{} = subscriber) do
-    Subscriber.changeset(subscriber, %{})
+    ArWeekly.EmailService.send_email(
+      recipient,
+      {"AR Weekly", "hello@ar-weekly.blog"},
+      "Please confirm you AR Weekly subscription",
+      html,
+      text
+    )
   end
 end

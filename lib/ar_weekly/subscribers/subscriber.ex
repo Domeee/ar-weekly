@@ -4,15 +4,16 @@ defmodule ArWeekly.Subscribers.Subscriber do
 
   schema "subscribers" do
     field :email, :string
+    field :is_active, :boolean
+    field :is_beta, :boolean
 
     timestamps()
   end
 
-  @doc false
   def changeset(subscriber, attrs) do
     subscriber
-    |> cast(attrs, [:email])
-    |> validate_required([:email])
+    |> cast(attrs, [:email, :is_active, :is_beta])
+    |> validate_required([:email, :is_active, :is_beta])
     |> unique_constraint(:email)
   end
 end
