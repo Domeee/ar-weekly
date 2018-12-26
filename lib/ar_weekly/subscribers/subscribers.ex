@@ -18,6 +18,11 @@ defmodule ArWeekly.Subscribers do
     Repo.all(query)
   end
 
+  def get_by_email(email) do
+    query = from(s in Subscriber, where: s.email == ^email)
+    Repo.one(query)
+  end
+
   def get_by_email!(email) do
     query = from(s in Subscriber, where: s.email == ^email)
     Repo.one!(query)
@@ -89,5 +94,22 @@ defmodule ArWeekly.Subscribers do
       html,
       text
     )
+  end
+
+  def confirm_subscription(email) do
+    case ArWeekly.Subscribers.get_by_email(email) do
+      nil ->
+        with {:ok, sub} <-
+               ArWeekly.Subscribers.create_subscriber(%{
+                 email: email,
+                 is_active: true,
+                 is_beta: false
+               }) do
+          ArWeekly.Issues.release_welcome_issue(sub)
+        end
+
+      sub ->
+        ArWeekly.Subscribers.update_subscriber(sub, %{is_active: true})
+    end
   end
 end
