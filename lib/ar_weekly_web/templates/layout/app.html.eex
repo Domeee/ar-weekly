@@ -18,7 +18,7 @@
     </main>
     <footer>
       <a href="/privacy">Privacy Policy</a
-            >&nbsp;&nbsp;|&nbsp;&nbsp; <a href="mailto:hello@ar-weekly.blog">hello@ar-weekly.blog</a>
+            >&nbsp;&nbsp;|&nbsp;&nbsp; <a href="mailto:hello@ar-weekly.blog">hello@ar-weekly.blog</a>|&nbsp;&nbsp; <a href="https://github.com/Domeee/ar-weekly">Source Code @ GitHub</a>
             >
     </footer>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
