@@ -32,7 +32,7 @@ defmodule ArWeekly.Issues do
   end
 
   @doc """
-  Creates a issue.
+  Creates an issue.
 
   ## Examples
 
