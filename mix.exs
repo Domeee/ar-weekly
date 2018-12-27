@@ -46,7 +46,8 @@ defmodule ArWeekly.MixProject do
       {:bamboo, "~> 1.1"},
       {:cipher, ">= 1.4.0"},
       {:timex, "~> 3.0"},
-      {:premailex, "~> 0.3.0"}
+      {:premailex, "~> 0.3.0"},
+      {:distillery, "~> 2.0"}
     ]
   end
 
