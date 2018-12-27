@@ -50,7 +50,13 @@ MIX_ENV=prod SECRET_KEY_BASE="$(mix phx.gen.secret)" DATABASE_URL="postgresql://
 
 ## Deploy to production
 
-`git push gigalixir master`
+```sh
+git push gigalixir master
+gigalixir ps:migrate
+gigalixir ps:remote_console
+seed_script = Path.join(["#{:code.priv_dir(:ar_weekly)}", "repo", "seeds.exs"])
+Code.eval_file(seed_script)
+```
 
 ## Contribute
 
