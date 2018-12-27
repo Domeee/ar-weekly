@@ -5,7 +5,6 @@
 ## Technology
 
 - [Phoenix](https://phoenixframework.org) is used to build the website and the newsletter engine
-- [Matomo](https://matomo.org/) keeps track of our visitors
 
 ## Development Prerequisites
 
@@ -25,18 +24,6 @@ mix ecto.setup
 cd assets && npm install
 ```
 
-### Configuration
-
-Create the following configuration files in the ./config directory:
-
-#### dev.secret.exs
-
-TBD
-
-#### prod.secret.exs
-
-TBD
-
 ## Run development
 
 ```sh
@@ -47,7 +34,7 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 ## Deploy to production
 
-TBD
+`git push gigalixir master`
 
 ## Contribute
 
