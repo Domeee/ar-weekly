@@ -123,7 +123,10 @@ defmodule ArWeekly.Issues do
 
   defp process_release(issue_number, issue_date, subs) do
     issue_filename = Timex.format!(issue_date, "{YYYY}-{M}-{D}")
-    html_template = "ar_weekly_issues/" <> issue_filename <> ".html.eex"
+
+    html_template =
+      Application.app_dir(:ar_weekly, "priv/ar_weekly_issues") <>
+        "/" <> issue_filename <> ".html.eex"
 
     subs
     |> Enum.each(fn sub ->
