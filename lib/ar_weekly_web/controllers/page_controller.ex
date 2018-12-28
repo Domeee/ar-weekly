@@ -54,9 +54,10 @@ defmodule ArWeeklyWeb.PageController do
     id = ArWeekly.EmailService.arweekly_decode(enc_id)
     ids = String.split(id, "@@")
     [issue_number, email] = ids
-    issue = ArWeekly.Issues.get_by_number!(issue_number)
-    sub = ArWeekly.Subscribers.get_by_email!(email)
-    ArWeekly.Issues.create_tracking(%{issue_id: issue.id, subscriber_id: sub.id})
+    tracking = ArWeekly.Issues.get_tracking!(issue_number, email)
+
+    if tracking == [],
+      do: ArWeekly.Issues.create_tracking(issue_number, email)
 
     conn
     |> redirect(to: ArWeeklyWeb.Router.Helpers.static_path(conn, "/images/tracking.jpg"))

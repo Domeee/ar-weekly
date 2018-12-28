@@ -31,6 +31,21 @@ defmodule ArWeekly.Issues do
     Repo.all(query)
   end
 
+  def get_tracking!(issue_number, subscriber_email) do
+    query =
+      from t in Tracking,
+        join: i in Issue,
+        on: t.issue_id == i.id,
+        join: s in Subscriber,
+        on: t.subscriber_id == s.id,
+        where: i.number == ^issue_number and s.email == ^subscriber_email,
+        select: %{
+          issue_id: i.id
+        }
+
+    Repo.all(query)
+  end
+
   @doc """
   Creates an issue.
 
@@ -53,6 +68,16 @@ defmodule ArWeekly.Issues do
     %Tracking{}
     |> Tracking.changeset(attrs)
     |> Repo.insert()
+  end
+
+  def create_tracking(issue_number, subscriber_email) do
+    issue = get_by_number!(issue_number)
+    subscriber = ArWeekly.Subscribers.get_by_email!(subscriber_email)
+
+    create_tracking(%{
+      issue_id: issue.id,
+      subsriber_id: subscriber.id
+    })
   end
 
   def create_link_tracking(attrs \\ %{}) do
