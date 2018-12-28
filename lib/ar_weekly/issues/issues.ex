@@ -91,10 +91,9 @@ defmodule ArWeekly.Issues do
   end
 
   # Create a new issue and send to all subs (:prod -> all, :beta -> beta testers only)
-  def release(version \\ :prod)
+  def release(version \\ :prod, issue_date \\ Timex.today())
 
-  def release(version) do
-    issue_date = Timex.today()
+  def release(version, issue_date) do
     subs = get_subscribers(version)
 
     issue_number =
