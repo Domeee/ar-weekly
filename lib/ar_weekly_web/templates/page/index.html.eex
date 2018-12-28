@@ -24,4 +24,4 @@
   <% end %>
 <% end %>
 </div>
-<div class="preview"><img src="<%= Routes.static_path(@conn, "/images/preview.png") %>" alt="AR Weekly Logo"></div>
+<img class="preview" src="<%= Routes.static_path(@conn, "/images/preview.png") %>" alt="AR Weekly Logo">
