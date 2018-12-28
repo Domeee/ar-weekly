@@ -5,14 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>AR Weekly</title>
+    <meta name="description" content="A weekly email for busy people who care about augmented reality">
+    <meta name="keywords" content="augmented reality, ar, augmented reality news, ar news, augmented reality newsletter, ar newsletter, augmented reality blog, ar blog">
+    <meta name="author" content="Dominique Huber">
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <link rel="icon" type="image/png" sizes="32x32" href="<%= Routes.static_path(@conn, "/images/favicon-32x32.png") %>">
     <link rel="icon" type="image/png" sizes="96x96" href="<%= Routes.static_path(@conn, "/images/favicon-96x96.png") %>">
     <link rel="icon" type="image/png" sizes="16x16" href="<%= Routes.static_path(@conn, "/images/favicon-16x16.png") %>">
-    <!-- Matomo -->
     <script type="text/javascript">
       var _paq = _paq || [];
-      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
       _paq.push(['trackPageView']);
       _paq.push(['enableLinkTracking']);
       (function() {
@@ -23,14 +24,15 @@
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
       })();
     </script>
-    <noscript><p><img src="https://piwik.donhubi.ch/piwik.php?idsite=8&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-    <!-- End Matomo Code -->
+    <noscript>
+      <p>
+        <img src="https://piwik.donhubi.ch/piwik.php?idsite=8&amp;rec=1" style="border:0;" alt="" />
+      </p>
+    </noscript>
   </head>
   <body>
     <noscript>
-      <!-- Matomo Image Tracker-->
       <img src="https://piwik.donhubi.ch/piwik.php?idsite=8&amp;rec=1&amp;action_name=AR+Weekly" style="border:0" alt="" />
-      <!-- End Matomo -->
     </noscript>
     <header>
       <a href="/">
