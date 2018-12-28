@@ -15,13 +15,25 @@ defmodule ArWeeklyWeb.PageController do
     changeset = SubscriberParams.changeset(%SubscriberParams{}, subscriber)
 
     if changeset.valid? do
-      ArWeekly.Subscribers.send_confirmation_email(changeset.changes.email)
-    end
+      changeset =
+        try do
+          ArWeekly.Subscribers.send_confirmation_email(changeset.changes.email)
+          changeset
+        rescue
+          _ ->
+            SubscriberParams.invalidate_email(changeset)
+        end
 
-    render(conn, "index.html",
-      changeset: %{changeset | action: :validate},
-      is_subscribed: false
-    )
+      render(conn, "index.html",
+        changeset: %{changeset | action: :insert},
+        is_subscribed: false
+      )
+    else
+      render(conn, "index.html",
+        changeset: %{changeset | action: :insert},
+        is_subscribed: false
+      )
+    end
   end
 
   def confirm_subscription(conn, %{"subscriber" => subscriber}) do
