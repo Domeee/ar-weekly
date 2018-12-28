@@ -80,6 +80,8 @@
               src="<%= @logo_url %>"
               alt="AR Weekly"
               class="logo"
+              width="240px"
+              height="240px"
             />
           </td>
         </tr>
