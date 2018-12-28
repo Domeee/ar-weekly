@@ -1,6 +1,6 @@
-# ArWeekly
+# AR Weekly
 
-**A weekly email for busy people who care about augmented reality.** AR Weekly is a curated list of the most relevant augmented reality news from the week. Sent to your inbox every monday.
+**A weekly email for busy people who care about augmented reality.** [AR Weekly](https://ar-weekly.blog) is a curated list of the most relevant augmented reality news from the week. Sent to your inbox every monday.
 
 ## Technology
 
