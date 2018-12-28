@@ -64,20 +64,20 @@ defmodule ArWeekly.Issues do
     |> Repo.insert()
   end
 
-  def create_tracking(attrs \\ %{}) do
-    %Tracking{}
-    |> Tracking.changeset(attrs)
-    |> Repo.insert()
-  end
-
   def create_tracking(issue_number, subscriber_email) do
     issue = get_by_number!(issue_number)
     subscriber = ArWeekly.Subscribers.get_by_email!(subscriber_email)
 
     create_tracking(%{
       issue_id: issue.id,
-      subsriber_id: subscriber.id
+      subscriber_id: subscriber.id
     })
+  end
+
+  defp create_tracking(attrs) do
+    %Tracking{}
+    |> Tracking.changeset(attrs)
+    |> Repo.insert()
   end
 
   def create_link_tracking(attrs \\ %{}) do
@@ -156,6 +156,10 @@ defmodule ArWeekly.Issues do
     |> Enum.each(fn sub ->
       tracking_id =
         ArWeekly.EmailService.arweekly_encode(to_string(issue_number) <> "@@" <> sub.email)
+
+      IO.inspect(
+        ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue, tracking_id)
+      )
 
       html =
         EEx.eval_file(html_template,
