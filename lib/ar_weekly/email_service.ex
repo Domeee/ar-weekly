@@ -1,15 +1,19 @@
 defmodule ArWeekly.EmailService do
   import Bamboo.Email
 
-  def send_email(recipient, from, subject, html_body, text_body) do
+  def send_email(recipient, from, subject, html_body, text_body, list_unsub \\ nil) do
     email =
-      new_email(
-        to: recipient,
-        from: from,
-        subject: subject,
-        html_body: html_body,
-        text_body: text_body
-      )
+      new_email()
+      |> to(recipient)
+      |> from(from)
+      |> subject(subject)
+      |> html_body(html_body)
+      |> text_body(text_body)
+
+    email =
+      if not is_nil(list_unsub),
+        do: put_header(email, "List-Unsubscribe", "<#{list_unsub}>"),
+        else: email
 
     ArWeekly.Mailer.deliver_now(email)
   end

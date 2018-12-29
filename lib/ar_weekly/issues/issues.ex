@@ -157,9 +157,12 @@ defmodule ArWeekly.Issues do
       tracking_id =
         ArWeekly.EmailService.arweekly_encode(to_string(issue_number) <> "@@" <> sub.email)
 
-      IO.inspect(
-        ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue, tracking_id)
-      )
+      unsubscribe_url =
+        ArWeeklyWeb.Router.Helpers.page_url(
+          ArWeeklyWeb.Endpoint,
+          :unsubscribe,
+          ArWeekly.EmailService.arweekly_encode(sub.email)
+        )
 
       html =
         EEx.eval_file(html_template,
@@ -169,12 +172,7 @@ defmodule ArWeekly.Issues do
             issue_date_from: Timex.shift(issue_date, days: -7),
             issue_date_to: Timex.shift(issue_date, days: -1),
             next_issue_date: Timex.shift(issue_date, days: 7),
-            unsubscribe_url:
-              ArWeeklyWeb.Router.Helpers.page_url(
-                ArWeeklyWeb.Endpoint,
-                :unsubscribe,
-                ArWeekly.EmailService.arweekly_encode(sub.email)
-              ),
+            unsubscribe_url: unsubscribe_url,
             privacy_url: ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :privacy),
             issue_tracking_url:
               ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue, tracking_id),
@@ -192,7 +190,8 @@ defmodule ArWeekly.Issues do
         {"AR Weekly", "hello@ar-weekly.blog"},
         "AR Weekly Newsletter Issue ##{issue_number}",
         Premailex.to_inline_css(html),
-        Premailex.to_text(html)
+        Premailex.to_text(html),
+        unsubscribe_url
       )
     end)
 
