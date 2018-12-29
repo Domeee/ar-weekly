@@ -38,9 +38,6 @@
       a:active {
         color: #ca3827;
       }
-      .logo {
-        max-width: 240px;
-      }
       .article-title {
         margin: 0;
         font-size: 22px;
@@ -79,9 +76,8 @@
             <img
               src="<%= @logo_url %>"
               alt="AR Weekly"
-              class="logo"
-              width="240px"
-              height="240px"
+              width="100px"
+              height="100px"
             />
           </td>
         </tr>

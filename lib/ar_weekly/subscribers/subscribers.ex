@@ -71,7 +71,7 @@ defmodule ArWeekly.Subscribers do
     html = """
     <table style="font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: 16px;line-height: 24px;color: rgba(0, 0, 0, 0.8);">
       <tr><td><h1 style="margin: 0;font-size: 22px;font-weight: bold;color: #2c3e50;">AR Weekly</h1></td></tr>
-      <tr><td><p>You receive this Email because you subscribed to the AR Weekly Blog. To complete your subscription please confirm you email address by clicking on the following link:</p></td></tr>
+      <tr><td><p>You receive this Email because you subscribed to the AR Weekly Blog. To complete your subscription please confirm your email address by clicking on the following link:</p></td></tr>
       <tr><td><p><a href="#{url}/confirm_subscription/#{rec_enc}" style="color: #ca3827;">#{url}/confirm_subscription/#{
       rec_enc
     }</a></p></td></tr>
@@ -81,7 +81,7 @@ defmodule ArWeekly.Subscribers do
 
     text = """
       AR Weekly\r\n\r\n
-      You receive this Email because you subscribed to the AR Weekly Blog. To complete your subscription please confirm you email address by clicking on the following link:\r\n
+      You receive this Email because you subscribed to the AR Weekly Blog. To complete your subscription please confirm your email address by clicking on the following link:\r\n
       #{url}/confirm_subscription/#{rec_enc}\r\n\r\n
       Thank you and best regards\r\n
       AR Weekly
