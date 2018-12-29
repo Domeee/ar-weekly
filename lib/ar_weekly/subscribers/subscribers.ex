@@ -7,25 +7,26 @@ defmodule ArWeekly.Subscribers do
   alias ArWeekly.Repo
 
   alias ArWeekly.Subscribers.Subscriber
+  alias ArWeekly.Subscribers.SignUp
 
   def list_active() do
-    query = from(s in Subscriber, where: s.is_active)
-    Repo.all(query)
+    from(s in Subscriber, where: s.is_active)
+    |> Repo.all()
   end
 
   def list_active_betas() do
-    query = from(s in Subscriber, where: s.is_active and s.is_beta)
-    Repo.all(query)
+    from(s in Subscriber, where: s.is_active and s.is_beta)
+    |> Repo.all()
   end
 
   def get_by_email(email) do
-    query = from(s in Subscriber, where: s.email == ^email)
-    Repo.one(query)
+    from(s in Subscriber, where: s.email == ^email)
+    |> Repo.one()
   end
 
   def get_by_email!(email) do
-    query = from(s in Subscriber, where: s.email == ^email)
-    Repo.one!(query)
+    from(s in Subscriber, where: s.email == ^email)
+    |> Repo.one!()
   end
 
   @doc """
@@ -47,6 +48,41 @@ defmodule ArWeekly.Subscribers do
   end
 
   @doc """
+  Creates a sign up.
+
+  ## Examples
+
+      iex> create_sign_up(%{field: value})
+      {:ok, %SignUp{}}
+
+      iex> create_sign_up(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_sign_up(attrs \\ %{}) do
+    %SignUp{}
+    |> SignUp.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Deletes a sign up.
+
+  ## Examples
+
+      iex> delete_sign_up(signup)
+      {:ok, %SignUp{}}
+
+      iex> delete_sign_up(signup)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_sign_up_by_email(email) do
+    from(s in SignUp, where: s.email == ^email)
+    |> Repo.delete_all()
+  end
+
+  @doc """
   Updates a subscriber.
 
   ## Examples
@@ -65,6 +101,8 @@ defmodule ArWeekly.Subscribers do
   end
 
   def send_confirmation_email(recipient) do
+    ArWeekly.Subscribers.create_sign_up(%{email: recipient})
+
     rec_enc = ArWeekly.EmailService.arweekly_encode(recipient)
     url = ArWeeklyWeb.Endpoint.url()
 
@@ -97,6 +135,8 @@ defmodule ArWeekly.Subscribers do
   end
 
   def confirm_subscription(email) do
+    ArWeekly.Subscribers.delete_sign_up_by_email(email)
+
     case ArWeekly.Subscribers.get_by_email(email) do
       nil ->
         with {:ok, sub} <-
