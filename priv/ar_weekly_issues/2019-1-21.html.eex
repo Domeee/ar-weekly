@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 16px;
+        line-height: 24px;
+        color: rgba(0, 0, 0, 0.8);
+      }
+      table {
+        max-width: 600px;
+        padding: 0 12px 24px 12px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      tr {
+        text-align: left;
+      }
+      hr {
+        color: #2c3e50;
+      }
+      a {
+        color: #ca3827;
+      }
+      a:link {
+        color: #ca3827;
+      }
+      a:visited {
+        color: #4c6259;
+      }
+      a:hover {
+        color: #ca3827;
+      }
+      a:active {
+        color: #ca3827;
+      }
+      .article-title {
+        margin: 0;
+        font-size: 22px;
+        font-weight: bold;
+        color: #2c3e50;
+      }
+      .text-centered {
+        text-align: center;
+      }
+      .pb-s {
+        padding-bottom: 12px;
+      }
+      .pb-m {
+        padding-bottom: 24px;
+      }
+      .pb-l {
+        padding-bottom: 48px;
+      }
+      .pb-xl {
+        padding-bottom: 56px;
+      }
+      .color-main {
+        color: #2c3e50;
+      }
+      .font-s {
+        font-size: 12px;
+      }
+    </style>
+    <title>AR Weekly</title>
+  </head>
+  <body>
+    <table class="text-centered">
+      <tbody>
+        <tr>
+          <td class="text-centered">
+            <img
+              src="<%= @logo_url %>"
+              alt="AR Weekly"
+              width="100px"
+              height="100px"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td class="text-centered font-s pb-xl">
+            Issue #<%= @issue_number %>, <%= Timex.format!(@issue_date, "{D} {Mfull} {YYYY}") %>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-xl">
+            Hello guys! This digest covers Augmented Reality related news between <%= Timex.format!(@issue_date_from, "{D} {Mfull}") %> and <%= Timex.format!(@issue_date_to, "{D} {Mfull}") %>. Enjoy!
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              For AR/VR 2.0 to live, AR/VR 1.0 must die
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            This article is based on Digi-Capital's AR/VR report Q1 2019 and provides the most comprehensive market analysis you will find out there.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://www.digi-capital.com/news/2019/01/for-ar-vr-2-0-to-live-ar-vr-1-0-must-die")) %>'
+              >https://www.digi-capital.com</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              Smartglasses hands-on: Focals by North and Vuzix Blade
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            The 2019 edition of the Consumer Electronics Show (CES) promises a lot of movement in the smartglasses market for 2019. Here are two hands-on reviews of two of the most popular smartglasses currently / soon available. The Focals by North and the Vuzix Blade.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://9to5google.com/2019/01/08/vuzix-blade-google-assistant")) %>'
+              >https://9to5google.com (Vuzix Blade)</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://9to5google.com/2019/01/10/focals-by-north-hands-on")) %>'
+              >https://9to5google.com (Focals by North)</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              Domino's exemplary adoption of AR
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            When it comes to adopting cutting-edge technology, Domino (the pizza restaurant chain) has an impressive track record. This very interesting article explains, how Domino is approaching AR.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://www.businessnewsaus.com.au/articles/-very-early-entry--with-ar-takes-domino-s-into-uncharted-food-retail-territory.html")) %>'
+              >https://www.businessnewsaus.com.au</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              HoloLens 2 press event
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            Fingers crossed that the press event at the Mobile World Congress next month will be about HoloLens 2. At least the guys from The Verge think so ;-)
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://www.theverge.com/2019/1/16/18185318/microsoft-hololens-2-mobile-world-congress-press-event-date")) %>'
+              >https://www.theverge.com</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              AR and the browser
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            With the experimental <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://hacks.mozilla.org/2018/09/webxr")) %>'
+              >WebXR Device API</a>, AR in the browser is a real thing. Anselm Hook from Mozilla describes his experience building a minimal AR app for the browser.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://hacks.mozilla.org/2019/01/augmented-reality-and-the-browser%e2%80%8a-%e2%80%8aan-app-experiment")) %>'
+              >https://hacks.mozilla.org</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              AR in Commerce
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            ARtillery projects that by 2022 $6.1 billion in consumer goods will be purchased through product visualization (e.g. visual search).
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://arinsider.co/2019/01/17/artillery-briefs-episode-23-ar-commerce-materializes")) %>'
+              >https://arinsider.co</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            Suggestions or comments are more than welcome! Just reply to this
+            Email.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-xl">
+            Thanks for reading<br />
+            <span class="color-main"><strong>AR</strong>&nbsp;Weekly</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m font-s">
+            You receive this Email because you are subscribed to the AR Weekly
+            Blog. Your next delivery is on <%= Timex.format!(@next_issue_date, "{D} {Mfull} {YYYY}") %>.
+          </td>
+        </tr>
+        <tr>
+          <td class="font-s">
+            <a href="<%= @unsubscribe_url %>">Unsubscribe</a>&nbsp;&nbsp;
+            |&nbsp;&nbsp;<a href="<%= @privacy_url %>">Privacy Policy</a
+            >&nbsp;&nbsp;|&nbsp;&nbsp;<a href="mailto:hello@ar-weekly.blog">hello@ar-weekly.blog</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://github.com/Domeee/ar-weekly">Source Code @ GitHub</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <img width="1px" height="1px" src="<%= @issue_tracking_url %>" alt="">
+  </body>
+</html>

@@ -58,6 +58,22 @@ seed_script = Path.join(["#{:code.priv_dir(:ar_weekly)}", "repo", "seeds.exs"])
 Code.eval_file(seed_script)
 ```
 
+## Issue releases
+
+### Test release @ localhost (with mix)
+
+```sh
+iex -S mix
+ArWeekly.Issues.release(:beta, ~D[2019-01-21] \\ Timex.today())
+```
+
+### Test release @ production
+
+```sh
+gigalixir ps:remote_console
+ArWeekly.Issues.release(:prod, ~D[2019-01-21] \\ Timex.today())
+```
+
 ## Contribute
 
 Pull requests are warmly welcome.
