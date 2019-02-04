@@ -100,7 +100,7 @@
         </tr>
         <tr>
           <td class="pb-s">
-            Pokemon Go, the AR game that launched to mass hysteria in summer 2016, showed the limitations of the current internet infrastructure for AR. 5G, dedicated AR clouds, distributed micro data center, are some of the possible solutions.
+            Pokemon Go, the AR game that launched to mass hysteria in summer 2016, showed the limitations of the current internet infrastructure for AR. 5G, dedicated AR clouds, and distributed micro data center are some of the possible solutions.
           </td>
         </tr>
         <tr>
@@ -184,7 +184,7 @@
           </td>
         </tr>
         <tr>
-          <td class="pb-l">
+          <td class="pb-s">
           Source:
           <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://next.reality.news/news/apple-rumor-mill-cranks-back-up-with-reports-next-iphones-using-new-camera-sensors-for-ar-0193171")) %>'
               >https://next.reality.news</a
@@ -192,7 +192,7 @@
           </td>
         </tr>
         <tr>
-          <td class="pb-s">
+          <td class="pb-l">
           Source:
           <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://slate.com/technology/2019/01/2019-apple-iphone-rumors-camera-appearance-pencil.html")) %>'
               >https://slate.com</a
