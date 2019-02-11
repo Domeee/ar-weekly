@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 16px;
+        line-height: 24px;
+        color: rgba(0, 0, 0, 0.8);
+      }
+      table {
+        max-width: 600px;
+        padding: 0 12px 24px 12px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      tr {
+        text-align: left;
+      }
+      hr {
+        color: #2c3e50;
+      }
+      a {
+        color: #ca3827;
+      }
+      a:link {
+        color: #ca3827;
+      }
+      a:visited {
+        color: #4c6259;
+      }
+      a:hover {
+        color: #ca3827;
+      }
+      a:active {
+        color: #ca3827;
+      }
+      .article-title {
+        margin: 0;
+        font-size: 22px;
+        font-weight: bold;
+        color: #2c3e50;
+      }
+      .text-centered {
+        text-align: center;
+      }
+      .pb-s {
+        padding-bottom: 12px;
+      }
+      .pb-m {
+        padding-bottom: 24px;
+      }
+      .pb-l {
+        padding-bottom: 48px;
+      }
+      .pb-xl {
+        padding-bottom: 56px;
+      }
+      .color-main {
+        color: #2c3e50;
+      }
+      .font-s {
+        font-size: 12px;
+      }
+    </style>
+    <title>AR Weekly</title>
+  </head>
+  <body>
+    <table class="text-centered">
+      <tbody>
+        <tr>
+          <td class="text-centered">
+            <img
+              src="<%= @logo_url %>"
+              alt="AR Weekly"
+              width="100px"
+              height="100px"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td class="text-centered font-s pb-xl">
+            Issue #<%= @issue_number %>, <%= Timex.format!(@issue_date, "{D} {Mfull} {YYYY}") %>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-xl">
+            Hello guys! This digest covers Augmented Reality related news between <%= Timex.format!(@issue_date_from, "{D} {Mfull}") %> and <%= Timex.format!(@issue_date_to, "{D} {Mfull}") %>. Enjoy!
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              Hands-on Review of the Focals Smartglasses
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            What is it really like to wear and use smartglasses in our daily lives? According the WIRED it is very good, but not quite great.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://www.wired.com/review/focals-by-north-smart-glasses")) %>'
+              >https://www.wired.com</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              What's Behind Snapchat's Visual Search Play?
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            According to ARtillery Intelligence, $6.1 in annual transaction value will flow through AR interfaces by 2022. This articles describes how Snapchat is positioning itself within this market.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://arinsider.co/2019/02/05/whats-behind-snapchats-visual-search-play")) %>'
+              >https://arinsider.co</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              Wanna Kicks: a Showcase of AR in Commerce
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            WANNABY is an AR commerce company and the developer behind the AR app's Wanna Kicks, Wanna Nails, and Wanna Jewelry. The article describes the latest app Wanna Kicks and the interesting concept behind shopping through an AR interface.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://arcritic.com/2891/wanna-kicks-shoes-try-on-app-the-future-of-footwear-shopping")) %>'
+              >https://arcritic.com</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              Magic Leap is Beta Testing Multi-User Experiences
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            Until now AR with Magic Leap was a single user experience. With the latest update of the Lumin OS Magic Leap provides the ability for 2+ people to have a shared AR experience.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://magic-leap.reality.news/news/magic-leap-lumin-os-beta-update-delivers-map-merge-feature-for-multi-user-experiences-0193475")) %>'
+              >https://magic-leap.reality.news</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            Suggestions or comments are more than welcome! Just reply to this
+            email.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-xl">
+            Thanks for reading<br />
+            <span class="color-main"><strong>AR</strong>&nbsp;Weekly</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m font-s">
+            You receive this Email because you are subscribed to the AR Weekly
+            Blog. Your next delivery is on <%= Timex.format!(@next_issue_date, "{D} {Mfull} {YYYY}") %>.
+          </td>
+        </tr>
+        <tr>
+          <td class="font-s">
+            <a href="<%= @unsubscribe_url %>">Unsubscribe</a>&nbsp;&nbsp;
+            |&nbsp;&nbsp;<a href="<%= @privacy_url %>">Privacy Policy</a
+            >&nbsp;&nbsp;|&nbsp;&nbsp;<a href="mailto:hello@ar-weekly.blog">hello@ar-weekly.blog</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://github.com/Domeee/ar-weekly">Source Code @ GitHub</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <img width="1px" height="1px" src="<%= @issue_tracking_url %>" alt="">
+  </body>
+</html>
