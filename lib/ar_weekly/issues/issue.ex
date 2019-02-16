@@ -13,6 +13,5 @@ defmodule ArWeekly.Issues.Issue do
     issue
     |> cast(attrs, [:number, :date])
     |> validate_required([:number, :date])
-    |> unique_constraint(:number)
   end
 end

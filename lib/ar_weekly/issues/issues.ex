@@ -116,33 +116,26 @@ defmodule ArWeekly.Issues do
   end
 
   # Create a new issue and send to all subs (:prod -> all, :beta -> beta testers only)
-  def release(version \\ :prod, issue_date \\ Timex.today())
+  def release(target \\ :beta, issue_date \\ Timex.today())
 
-  def release(version, issue_date) do
-    subs = get_subscribers(version)
+  def release(target, issue_date) do
+    subs = get_subscribers(target)
 
     issue_number =
       ArWeekly.Issues.get_latest()
-      |> release(issue_date, subs)
+      |> get_issue_number(target)
+
+    process_release(issue_number, issue_date, subs)
 
     create_issue(%{number: issue_number, date: issue_date})
   end
 
-  defp release(nil, issue_date, subs) do
-    issue_number = 1
-    process_release(issue_number, issue_date, subs)
-  end
-
-  defp release(issue, issue_date, subs) do
-    process_release(issue.number + 1, issue_date, subs)
-  end
-
-  defp get_subscribers(:beta) do
-    ArWeekly.Subscribers.list_active_betas()
+  defp get_subscribers(:prod) do
+    ArWeekly.Subscribers.list_active()
   end
 
   defp get_subscribers(_) do
-    ArWeekly.Subscribers.list_active()
+    ArWeekly.Subscribers.list_active_betas()
   end
 
   defp process_release(issue_number, issue_date, subs) do
@@ -196,5 +189,17 @@ defmodule ArWeekly.Issues do
     end)
 
     issue_number
+  end
+
+  defp get_issue_number(nil, _) do
+    1
+  end
+
+  defp get_issue_number(issue, :prod) do
+    issue.number + 1
+  end
+
+  defp get_issue_number(issue, :beta) do
+    issue.number
   end
 end
