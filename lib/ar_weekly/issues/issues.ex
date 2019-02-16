@@ -179,7 +179,7 @@ defmodule ArWeekly.Issues do
             logo_url:
               ArWeeklyWeb.Router.Helpers.static_url(
                 ArWeeklyWeb.Endpoint,
-                "/images/ar-weekly-logo.png"
+                "/images/ar-weekly-logo-email.png"
               ),
             subscriber_email: sub.email
           ]

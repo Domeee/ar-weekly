@@ -76,8 +76,8 @@
             <img
               src="<%= @logo_url %>"
               alt="AR Weekly"
-              width="100px"
-              height="100px"
+              width="200px"
+              height="200px"
             />
           </td>
         </tr>
