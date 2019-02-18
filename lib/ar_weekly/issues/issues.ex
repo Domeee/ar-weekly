@@ -12,8 +12,9 @@ defmodule ArWeekly.Issues do
   alias ArWeekly.Subscribers.Subscriber
 
   def get_by_number!(number) do
-    query = from(i in Issue, where: i.number == ^number)
-    Repo.one!(query)
+    from(i in Issue, where: i.number == ^number, order_by: i.inserted_at)
+    |> Repo.all()
+    |> List.last()
   end
 
   def get_link_tracking!(issue_number, subscriber_email, link) do
