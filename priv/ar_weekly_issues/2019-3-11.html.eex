@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 16px;
+        line-height: 24px;
+        color: rgba(0, 0, 0, 0.8);
+      }
+      table {
+        max-width: 600px;
+        padding: 0 12px 24px 12px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      tr {
+        text-align: left;
+      }
+      hr {
+        color: #2c3e50;
+      }
+      a {
+        color: #ca3827;
+      }
+      a:link {
+        color: #ca3827;
+      }
+      a:visited {
+        color: #4c6259;
+      }
+      a:hover {
+        color: #ca3827;
+      }
+      a:active {
+        color: #ca3827;
+      }
+      .article-title {
+        margin: 0;
+        font-size: 22px;
+        font-weight: bold;
+        color: #2c3e50;
+      }
+      .text-centered {
+        text-align: center;
+      }
+      .pb-s {
+        padding-bottom: 12px;
+      }
+      .pb-m {
+        padding-bottom: 24px;
+      }
+      .pb-l {
+        padding-bottom: 48px;
+      }
+      .pb-xl {
+        padding-bottom: 56px;
+      }
+      .color-main {
+        color: #2c3e50;
+      }
+      .font-s {
+        font-size: 12px;
+      }
+    </style>
+    <title>AR Weekly</title>
+  </head>
+  <body>
+    <table class="text-centered">
+      <tbody>
+        <tr>
+          <td class="text-centered">
+            <img
+              src="<%= @logo_url %>"
+              alt="AR Weekly"
+              width="100px"
+              height="100px"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td class="text-centered font-s pb-xl">
+            Issue #<%= @issue_number %>, <%= Timex.format!(@issue_date, "{D} {Mfull} {YYYY}") %>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-xl">
+            Hello guys! This digest covers Augmented Reality related news between <%= Timex.format!(@issue_date_from, "{D} {Mfull}") %> and <%= Timex.format!(@issue_date_to, "{D} {Mfull}") %>. Enjoy!
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title" style="color: #ca3827;">
+              LAST CHANCE TO RAISE YOUR VOICE
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            Participate in the survey and help to improve AR Weekly. I am currently working on the next iteration of the product and really appreciating your feedback!
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://arweekly.typeform.com/to/HBt8Ij")) %>'
+              >https://arweekly.typeform.com</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              Rumours: Apple Joining the AR Hardware Game in 2020
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            Current rumours say that Apple is going to release iPhone tethered AR glasses by 2020.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://venturebeat.com/2019/03/08/kuo-apple-plans-iphone-tethered-ar-glasses-for-2020")) %>'
+              >https://venturebeat.com</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              Best Of Mobile World Congress (MWC) 2019 for AR
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            The HoloLens 2 was not the only exciting news from this year's MWC. Microsoft announced the Kinect Azure. An AI powered depth sensing camera targeted at enterprise customers for the price of $399. HTC showcased the possibilities of 5G networking with a XR game. Qualcomm positioned itself as the go-to AR enabler for smartphones with its latest Snapdragon 855 chip. It provides the computing power for demanding AR applications consumed by so called XR-viewers (Smartphones).
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://skarredghost.com/2019/03/04/all-ar-vr-xr-news-mwc-2019")) %>'
+              >https://skarredghost.com</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              "Next Generation Google Glass" Photos Leaked
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            Based on a leak the second generation of Google's AR glasses come with the following specifications. Snapdragon 710 chip, an integrated LTE modem, support for Bluetooth 5.0 and 802.11ac Wi-Fi, 32MP sensor with 4K video captured at 30FPS or 1080p at 120FPS, 3GB RAM, and supposedly it runs on Android Oreo. The device is targeted at enterprise customers.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://9to5google.com/2019/03/05/google-glass-enterprise-edition-2-leak")) %>'
+              >https://9to5google.com</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              HoloLens 2 Video Series By Microsoft
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            Microsoft announced a live stream video series which is focusing on HoloLens 2 and targeted at developers. Check out the article by HoloLens Reality for more infos on the announcement. The second link points to Microsoft's mixed reality events site, on which each episode will be announced.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://hololens.reality.news/news/microsoft-debut-hololens-2-livestream-video-series-with-demos-updates-developer-info-0194564")) %>'
+              >https://hololens.reality.news</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://docs.microsoft.com/en-us/windows/mixed-reality/sf-academy-events#march-12-2019")) %>'
+              >https://docs.microsoft.com</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              Google Explains How Animated Faces Work
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            The latest update of ARCore brought a powerful face detection API. This article by Google's AI team details the technical challenges and implementation details of the new feature.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://venturebeat.com/2019/03/08/google-reveals-ai-tricks-behind-new-augmented-reality-animations")) %>'
+              >https://venturebeat.com</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              $48 Million: Matterport 3D Content Capture Technology Funded
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            With the rise of AR applications the demand for 3D content capturing technology increases. Last week the startup announced a technology to generate 3D models from 2D imagery captured by 360-degree cameras.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://next.reality.news/news/matterport-lands-48-million-investment-for-3d-content-capture-technology-0194484")) %>'
+              >https://next.reality.news</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            Suggestions or comments are more than welcome! Just reply to this
+            email.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-xl">
+            Thanks for reading<br />
+            <span class="color-main"><strong>AR</strong>&nbsp;Weekly</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m font-s">
+            You receive this Email because you are subscribed to the AR Weekly
+            Blog. Your next delivery is on <%= Timex.format!(@next_issue_date, "{D} {Mfull} {YYYY}") %>.
+          </td>
+        </tr>
+        <tr>
+          <td class="font-s">
+            <a href="<%= @unsubscribe_url %>">Unsubscribe</a>&nbsp;&nbsp;
+            |&nbsp;&nbsp;<a href="<%= @privacy_url %>">Privacy Policy</a
+            >&nbsp;&nbsp;|&nbsp;&nbsp;<a href="mailto:hello@ar-weekly.blog">hello@ar-weekly.blog</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://github.com/Domeee/ar-weekly">Source Code @ GitHub</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <img width="1px" height="1px" src="<%= @issue_tracking_url %>" alt="">
+  </body>
+</html>
