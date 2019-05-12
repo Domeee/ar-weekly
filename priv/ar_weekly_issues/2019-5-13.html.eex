@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 16px;
+        line-height: 24px;
+        color: rgba(0, 0, 0, 0.8);
+      }
+      table {
+        max-width: 600px;
+        padding: 0 12px 24px 12px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      tr {
+        text-align: left;
+      }
+      hr {
+        color: #2c3e50;
+      }
+      a {
+        color: #ca3827;
+      }
+      a:link {
+        color: #ca3827;
+      }
+      a:visited {
+        color: #4c6259;
+      }
+      a:hover {
+        color: #ca3827;
+      }
+      a:active {
+        color: #ca3827;
+      }
+      .article-title {
+        margin: 0;
+        font-size: 22px;
+        font-weight: bold;
+        color: #2c3e50;
+      }
+      .text-centered {
+        text-align: center;
+      }
+      .pb-s {
+        padding-bottom: 12px;
+      }
+      .pb-m {
+        padding-bottom: 24px;
+      }
+      .pb-l {
+        padding-bottom: 48px;
+      }
+      .pb-xl {
+        padding-bottom: 56px;
+      }
+      .color-main {
+        color: #2c3e50;
+      }
+      .font-s {
+        font-size: 12px;
+      }
+    </style>
+    <title>AR Weekly</title>
+  </head>
+  <body>
+    <table class="text-centered">
+      <tbody>
+        <tr>
+          <td class="text-centered">
+            <img
+              src="<%= @logo_url %>"
+              alt="AR Weekly"
+              width="100px"
+              height="100px"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td class="text-centered font-s pb-xl">
+            Issue #<%= @issue_number %>, <%= Timex.format!(@issue_date, "{D} {Mfull} {YYYY}") %>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-xl">
+            Hello guys! This digest covers Augmented Reality related news between <%= Timex.format!(@issue_date_from, "{D} {Mfull}") %> and <%= Timex.format!(@issue_date_to, "{D} {Mfull}") %>. Enjoy!
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              Google Brings AR Content To Google Search
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            At Google I/O last week, CEO Sundar Pinchai announced that Google Search will receive its first AR feature. General knowledge terms, such as human anatomy and animals, can be viewed as a 3D model in a knowledge panel and also be examined in the real world (the source link provides some examples). The entire experience is web based, no standalone app required, and enabled by Scene Viewer, Google's web-based AR solution (see the next article for more details). In terms of consumer adoption for AR, this might be the biggest step we have seen so far. Google Search will expose AR in a straightforward way with a convincing use case to billions of consumers.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://mobile-ar.reality.news/news/google-brings-augmented-reality-mainstream-by-adding-ar-content-search-0197222")) %>'
+              >https://mobile-ar.reality.news</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              Google's ARCore Update Enables Web-Based AR
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            Also announced at Google I/O last week, Scene Viewer is Google's answer to Apple's AR Quick Look. With Scene Viewer, 3D models can be embedded in a web site with just 3 lines of code. Scene Viewer supports horizontal surface detection to position 3D models in the real world. Besides Scene Viewer, the ARCore update also brings a new ambient light estimation mode called Environmental HDR. Environmental HDR provides developers with three APIs to replicate real world lightning. Last but not least, the update improves Augmented Images, the feature that detects, tracks, and brings 2D images to life. Tracking of moving images and multiple images simultaneously will be possible.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://developers.googleblog.com/2019/05/ARCore-IO19.html")) %>'
+              >https://developers.googleblog.com</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              University in France Creates World First Smart Contact Lense
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            Science fiction coming to life! Microbattery powered contact lenses that are able to communicate with a headgear via a proprietary transmission protocol. AWESOME :D The blog "The Ghost Howls" conducted an interview with Jean-Louis de Bougrenet de la Tocnaye, head of Optics Department at IMT-Atlantique.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://skarredghost.com/2019/05/09/smart-ar-contact-lens-battery")) %>'
+              >https://skarredghost.com</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              AR Game Based On Real Life Wildlife Data
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            In 2017 the game company Internet of Elephants started a wonderful Kickstarter campaign - Safari Central. The urban adventure game brings wild life animals to one's own city. The animals move based on their tracked movements in the wild. The game itself and part of the profits are used to create empathy between broad audiences, endangered wildlife and the organizations that support them. The game is currently available for public testing and will be released this summer.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://www.internetofelephants.com/wildeverse")) %>'
+              >https://www.internetofelephants.com/wildeverse</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            Suggestions or comments are more than welcome! Just reply to this
+            email.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-xl">
+            Thanks for reading<br />
+            <span class="color-main"><strong>AR</strong>&nbsp;Weekly</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m font-s">
+            You receive this Email because you are subscribed to the AR Weekly
+            Blog. Your next delivery is on <%= Timex.format!(@next_issue_date, "{D} {Mfull} {YYYY}") %>.
+          </td>
+        </tr>
+        <tr>
+          <td class="font-s">
+            <a href="<%= @unsubscribe_url %>">Unsubscribe</a>&nbsp;&nbsp;
+            |&nbsp;&nbsp;<a href="<%= @privacy_url %>">Privacy Policy</a
+            >&nbsp;&nbsp;|&nbsp;&nbsp;<a href="mailto:hello@ar-weekly.blog">hello@ar-weekly.blog</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://github.com/Domeee/ar-weekly">Source Code @ GitHub</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <img width="1px" height="1px" src="<%= @issue_tracking_url %>" alt="">
+  </body>
+</html>
