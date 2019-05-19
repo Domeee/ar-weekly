@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 16px;
+        line-height: 24px;
+        color: rgba(0, 0, 0, 0.8);
+      }
+      table {
+        max-width: 600px;
+        padding: 0 12px 24px 12px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      tr {
+        text-align: left;
+      }
+      hr {
+        color: #2c3e50;
+      }
+      a {
+        color: #ca3827;
+      }
+      a:link {
+        color: #ca3827;
+      }
+      a:visited {
+        color: #4c6259;
+      }
+      a:hover {
+        color: #ca3827;
+      }
+      a:active {
+        color: #ca3827;
+      }
+      .article-title {
+        margin: 0;
+        font-size: 22px;
+        font-weight: bold;
+        color: #2c3e50;
+      }
+      .text-centered {
+        text-align: center;
+      }
+      .pb-s {
+        padding-bottom: 12px;
+      }
+      .pb-m {
+        padding-bottom: 24px;
+      }
+      .pb-l {
+        padding-bottom: 48px;
+      }
+      .pb-xl {
+        padding-bottom: 56px;
+      }
+      .color-main {
+        color: #2c3e50;
+      }
+      .font-s {
+        font-size: 12px;
+      }
+    </style>
+    <title>AR Weekly</title>
+  </head>
+  <body>
+    <table class="text-centered">
+      <tbody>
+        <tr>
+          <td class="text-centered">
+            <img
+              src="<%= @logo_url %>"
+              alt="AR Weekly"
+              width="100px"
+              height="100px"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td class="text-centered font-s pb-xl">
+            Issue #<%= @issue_number %>, <%= Timex.format!(@issue_date, "{D} {Mfull} {YYYY}") %>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-xl">
+            Hello guys! This digest covers Augmented Reality related news between <%= Timex.format!(@issue_date_from, "{D} {Mfull}") %> and <%= Timex.format!(@issue_date_to, "{D} {Mfull}") %>. Enjoy!
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              Unity's AR Foundation SDK Gets Extended Tracking Capabilities
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            AR Foundation is an SDK for the Unity game engine to build cross-platform (ARKit and ARCore) AR experiences. The SDK is currently in public preview. The latest update brings face tracking, 2D image tracking, 3D object tracking, and environment probes.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://blogs.unity3d.com/2019/05/09/unity-2019-2-beta-is-now-available")) %>'
+              >https://blogs.unity3d.com</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              Microsoft Announces Minecraft Earth AR Game
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            No need to introduce Minecraft ;-) The game will be free to play and available on iOS and Android devices. A closed beta starts this summer. <a href="https://earth.minecraft.net/en-us/sign-up">Sign up here</a> or check out the <a href="https://www.youtube.com/embed/AQEizp-VrVU?wmode=opaque">trailer</a>. Interesting fact for techies: Spatial awareness and multiplayer capabilities are provided via Azure Spatial Anchors.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://mobile-ar.reality.news/news/microsoft-turns-real-world-into-multiplayer-playground-with-minecraft-earth-mobile-ar-game-0197657")) %>'
+              >https://mobile-ar.reality.news</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              New HoloLens Competitor By Lenovo
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            At its conference Accelerate, Lenovo announced a new AR headset. The device runs on the Snapdragon 845 XR, a 6800 mAh battery, and features a waveguide display with 1080p resolution and a 40-degree field of view. Unlike HoloLens, which runs on Windows 10, the Lenovo AR headset runs on Android Oreo, which opens up a lot of opportunities to welcome Android developers to the platform. There will be a limited release in Q3 2019. The device is targeted at enterprise customers and a price has not yet been communicated.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://next.reality.news/news/lenovos-new-android-based-ar-headset-hits-hololens-where-hurts-enterprise-applications-0197478")) %>'
+              >https://next.reality.news</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              AR Headset By Polaris AR For Makers
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            By the end of june 2019, Polaris AR is starting to sell its AR headset. The device is an implementation of Leap Motion's <a href="https://developer.leapmotion.com/northstar">Norh Star</a> reference design - an open source specification for an AR headset with two 1600x1440 displays with 120 FPS, a visual field of 100 degrees, and 180 degree hand tracking. The headset is available from $299, as a full kit excluding the 3D printable parts, to a $499 version with included assembly and calibration.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://www.smart-prototyping.com/Project-North-Star-Kit")) %>'
+              >https://www.smart-prototyping.com/Project-North-Star-Kit</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              Waveguide Maker DigiLens Closes $50 Million Funding
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            DigiLense produces holographic waveguide displays - not only for AR headsets, but also for use in the automotive, aviation, and military industries. Among the investors are Samsung and Niantic.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://next.reality.news/news/samsung-joins-niantic-backing-digilens-with-50-million-funding-round-0197524")) %>'
+              >https://next.reality.news</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            Suggestions or comments are more than welcome! Just reply to this
+            email.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-xl">
+            Thanks for reading<br />
+            <span class="color-main"><strong>AR</strong>&nbsp;Weekly</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m font-s">
+            You receive this Email because you are subscribed to the AR Weekly
+            Blog. Your next delivery is on <%= Timex.format!(@next_issue_date, "{D} {Mfull} {YYYY}") %>.
+          </td>
+        </tr>
+        <tr>
+          <td class="font-s">
+            <a href="<%= @unsubscribe_url %>">Unsubscribe</a>&nbsp;&nbsp;
+            |&nbsp;&nbsp;<a href="<%= @privacy_url %>">Privacy Policy</a
+            >&nbsp;&nbsp;|&nbsp;&nbsp;<a href="mailto:hello@ar-weekly.blog">hello@ar-weekly.blog</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://github.com/Domeee/ar-weekly">Source Code @ GitHub</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <img width="1px" height="1px" src="<%= @issue_tracking_url %>" alt="">
+  </body>
+</html>
