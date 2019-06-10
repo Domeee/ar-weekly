@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 16px;
+        line-height: 24px;
+        color: rgba(0, 0, 0, 0.8);
+      }
+      table {
+        max-width: 600px;
+        padding: 0 12px 24px 12px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      tr {
+        text-align: left;
+      }
+      hr {
+        color: #2c3e50;
+      }
+      a {
+        color: #ca3827;
+      }
+      a:link {
+        color: #ca3827;
+      }
+      a:visited {
+        color: #4c6259;
+      }
+      a:hover {
+        color: #ca3827;
+      }
+      a:active {
+        color: #ca3827;
+      }
+      .article-title {
+        margin: 0;
+        font-size: 22px;
+        font-weight: bold;
+        color: #2c3e50;
+      }
+      .text-centered {
+        text-align: center;
+      }
+      .pb-s {
+        padding-bottom: 12px;
+      }
+      .pb-m {
+        padding-bottom: 24px;
+      }
+      .pb-l {
+        padding-bottom: 48px;
+      }
+      .pb-xl {
+        padding-bottom: 56px;
+      }
+      .color-main {
+        color: #2c3e50;
+      }
+      .font-s {
+        font-size: 12px;
+      }
+    </style>
+    <title>AR Weekly</title>
+  </head>
+  <body>
+    <table class="text-centered">
+      <tbody>
+        <tr>
+          <td class="text-centered">
+            <img
+              src="<%= @logo_url %>"
+              alt="AR Weekly"
+              width="100px"
+              height="100px"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td class="text-centered font-s pb-xl">
+            Issue #<%= @issue_number %>, <%= Timex.format!(@issue_date, "{D} {Mfull} {YYYY}") %>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-xl">
+            Hello guys! After a one week holiday, AR Weekly is back :-) This digest covers Augmented Reality related news between 3 June and <%= Timex.format!(@issue_date_to, "{D} {Mfull}") %>. Enjoy!
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              Apple's World Wide Developer Conference Highlights
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            The hightlights of last week's WWDC are ARKit 3, RealityKit, and RealityComposer. The most notable features of the third version of ARKit are people occlusion and motion capture. The source provides some exciting sample GIF's. RealityKit is a high-level 3D framework comparable to Unity and Unreal Engine but specific for AR solutions. RealityComposer is an AR prototyping tool targeted at users without 3D knowledge. Checkout the second source to view everything announced at this year's WWDC.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-2">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://next.reality.news/news/apple-brings-people-occlusion-motion-capture-arkit-3-alongside-realitykit-realitycomposer-for-ar-development-0198352")) %>'
+              >https://next.reality.news</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Everything Apple announced at WWDC:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://venturebeat.com/2019/06/04/everything-apple-announced-at-wwdc-2019")) %>'
+              >https://venturebeat.com</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              Mojo Vision: Smallest and Densest Display for Use in Smart Contact Lenses?
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            In our issue 15 in march of this year one article had the following title: Is Mojo Vision Developing Smart Contact Lenses? Back then, everything we knew was that Mojo Vision just received a $58 million funding ($ 108 million in total) to build an "invisible computing" AR platform. Last week they published their first major milestone, the Mojo Vision 14K pixel-per-inch display - the world's smallest and densest dynamic display. Check out the source to get a comparison of the size of the display with a ladybug. While Mojo Vision releases a lot of information about the technical specification of the display, they still won't tell us for what exactly it will be used. The use in smart contact lenses is still the most probable solution.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://venturebeat.com/2019/05/30/mojo-vision-reveals-the-worlds-smallest-and-densest-micro-display")) %>'
+              >https://venturebeat.com</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              Zappar Releases ZapBox 2.0
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            ZapBox is a mixed reality cardboard headset just for $30. Back in 2016 Zappar launched it's ZapBox Kickstarter campaign and sold over 1800 devices to early adopters and enthusiasts. Last week they announced the improved second iteration of the product. If you are interested in AR but don't want to spend a lot of money, this is the perfect solution for you.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://www.zappar.com/blog/zapbox-affordable-mixed-reality-available-now")) %>'
+              >https://www.zappar.com</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              Lots of new Hardware at Augmented World Expo
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            The AWE took place the week before last. Since it is one of the more important conferences for AR, manufacturers have used the opportunity to provide a lot of product updates. The highlights are: Nreal Light mixed reality smartglasses for $499, Vuzix M400 smartglasses for $1,799 targeted at enterprise customers (first to release hardware based on the Qualcomm Snapdragon XR1 platform), and Looking Glass Pro Workstation - an all-in-one 3D desktop computer for $6,000.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+          Source Nreal:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://next.reality.news/news/nreal-light-consumer-edition-arriving-later-year-for-499-0197914")) %>'
+              >https://next.reality.news</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+          Source Vuzix:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://next.reality.news/news/vuzix-reveals-price-for-m400-smartglasses-opens-pre-orders-for-early-adopters-0198230")) %>'
+              >https://next.reality.news</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source Looking Glas Pro:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://next.reality.news/news/looking-glass-pro-workstation-offers-glasses-free-3d-computing-but-premium-price-0198130")) %>'
+              >https://next.reality.news</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            Suggestions or comments are more than welcome! Just reply to this
+            email.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-xl">
+            Thanks for reading<br />
+            <span class="color-main"><strong>AR</strong>&nbsp;Weekly</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m font-s">
+            You receive this Email because you are subscribed to the AR Weekly
+            Blog. Your next delivery is on <%= Timex.format!(@next_issue_date, "{D} {Mfull} {YYYY}") %>.
+          </td>
+        </tr>
+        <tr>
+          <td class="font-s">
+            <a href="<%= @unsubscribe_url %>">Unsubscribe</a>&nbsp;&nbsp;
+            |&nbsp;&nbsp;<a href="<%= @privacy_url %>">Privacy Policy</a
+            >&nbsp;&nbsp;|&nbsp;&nbsp;<a href="mailto:hello@ar-weekly.blog">hello@ar-weekly.blog</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://github.com/Domeee/ar-weekly">Source Code @ GitHub</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <img width="1px" height="1px" src="<%= @issue_tracking_url %>" alt="">
+  </body>
+</html>
