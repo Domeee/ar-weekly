@@ -187,9 +187,6 @@ defmodule ArWeekly.Issues do
         Premailex.to_text(html),
         unsubscribe_url
       )
-
-      # Mailgun API throttling - max. 100 emails per hour
-      Process.sleep(1000 * 60)
     end)
 
     issue_number
