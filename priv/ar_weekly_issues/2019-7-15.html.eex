@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 16px;
+        line-height: 24px;
+        color: rgba(0, 0, 0, 0.8);
+      }
+      table {
+        max-width: 600px;
+        padding: 0 12px 24px 12px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      tr {
+        text-align: left;
+      }
+      hr {
+        color: #2c3e50;
+      }
+      a {
+        color: #ca3827;
+      }
+      a:link {
+        color: #ca3827;
+      }
+      a:visited {
+        color: #4c6259;
+      }
+      a:hover {
+        color: #ca3827;
+      }
+      a:active {
+        color: #ca3827;
+      }
+      .article-title {
+        margin: 0;
+        font-size: 22px;
+        font-weight: bold;
+        color: #2c3e50;
+      }
+      .text-centered {
+        text-align: center;
+      }
+      .pb-s {
+        padding-bottom: 12px;
+      }
+      .pb-m {
+        padding-bottom: 24px;
+      }
+      .pb-l {
+        padding-bottom: 48px;
+      }
+      .pb-xl {
+        padding-bottom: 56px;
+      }
+      .color-main {
+        color: #2c3e50;
+      }
+      .font-s {
+        font-size: 12px;
+      }
+    </style>
+    <title>AR Weekly</title>
+  </head>
+  <body>
+    <table class="text-centered">
+      <tbody>
+        <tr>
+          <td class="text-centered">
+            <img
+              src="<%= @logo_url %>"
+              alt="AR Weekly"
+              width="100px"
+              height="100px"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td class="text-centered font-s pb-xl">
+            Issue #<%= @issue_number %>, <%= Timex.format!(@issue_date, "{D} {Mfull} {YYYY}") %>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-xl">
+            Hello guys! The summery holidays are over and AR Weekly is back again. This digest covers Augmented Reality related news between <%= Timex.format!(@issue_date_from, "{D} {Mfull}") %> and <%= Timex.format!(@issue_date_to, "{D} {Mfull}") %>. Enjoy!
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              Where Is AR In Its Lifecycle?
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            Based on the latest ARtillery Intelligence AR revenue forecast, AR Insider beliefs that AR had its greatest hangover in 2018 and 2019. But the sector is beginning to recover and seeing meaningful traction and scale in mobile AR active usage.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://arinsider.co/2019/07/03/where-are-we-in-ars-lifecycle")) %>'
+              >https://arinsider.co</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              nReal AR Glasses Hands-On Review
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            The nReal AR glasses aim to be the most consumer friendly AR device out there. The glasses almost look like regular sunglasses. They feature two 1080p displays, a diagonal field of view of 52 degrees, integrated audio, 6 degree of freedom (DoF) tracking, a 3 DoF controller, and a bunch of sensors. The device will be available by the end of 2019 for $499. The review concludes that the device may be popular among tech enthusiasts, but limitations like limited vertical field of view or the jittery tracking will hinder mainstream adoption.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://skarredghost.com/2019/07/08/nreal-ar-glasses-hands-on-review")) %>'
+              >https://skarredghost.com</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              Minecraft Earth Beta Registration Open
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            Minecraft Earth will bring the block-building gameplay to mobile AR. As of now, the registration for the beta is open. See you there!
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://venturebeat.com/2019/07/13/minecraft-earth-beta-is-coming-soon")) %>'
+              >https://venturebeat.com</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              "Sight" AR Concept Film Sequel On Kickstarter
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            Back in 2012, "Sight" was the thing that got me excited for AR. Seven years later, the producers announced a Kickstarter campaign to produce a longer sequel. Check out the original movie on <a href="https://vimeo.com/46304267">Vimeo</a> and the Kickstarter campaign <a href="https://www.kickstarter.com/projects/sightextended/sight-extended">here</a>.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://augmented.reality.news/news/early-augmented-reality-concept-film-envisioned-future-gets-sequel-powered-by-kickstarter-0200993")) %>'
+              >https://augmented.reality.news</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            Suggestions or comments are more than welcome! Just reply to this
+            email.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-xl">
+            Thanks for reading<br />
+            <span class="color-main"><strong>AR</strong>&nbsp;Weekly</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m font-s">
+            You receive this Email because you are subscribed to the AR Weekly
+            Blog. Your next delivery is on <%= Timex.format!(@next_issue_date, "{D} {Mfull} {YYYY}") %>.
+          </td>
+        </tr>
+        <tr>
+          <td class="font-s">
+            <a href="<%= @unsubscribe_url %>">Unsubscribe</a>&nbsp;&nbsp;
+            |&nbsp;&nbsp;<a href="<%= @privacy_url %>">Privacy Policy</a
+            >&nbsp;&nbsp;|&nbsp;&nbsp;<a href="mailto:hello@ar-weekly.blog">hello@ar-weekly.blog</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://github.com/Domeee/ar-weekly">Source Code @ GitHub</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <img width="1px" height="1px" src="<%= @issue_tracking_url %>" alt="">
+  </body>
+</html>
