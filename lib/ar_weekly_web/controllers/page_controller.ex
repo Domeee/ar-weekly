@@ -3,7 +3,7 @@ defmodule ArWeeklyWeb.PageController do
   alias ArWeeklyWeb.SubscriberParams
   alias ArWeekly.Subscribers
   alias ArWeekly.EmailService
-  alias ArWeekly.Issues
+  alias ArWeekly.Analytics
 
   def index(conn, _params) do
     changeset = SubscriberParams.changeset(%SubscriberParams{}, %{})
@@ -56,10 +56,9 @@ defmodule ArWeeklyWeb.PageController do
     id = EmailService.arweekly_decode(enc_id)
     ids = String.split(id, "@@")
     [issue_number, email] = ids
-    tracking = Issues.get_tracking!(issue_number, email)
 
-    if tracking == [],
-      do: Issues.create_tracking(issue_number, email)
+    if not Analytics.is_issue_tracked(issue_number, email),
+      do: Analytics.track_issue(issue_number, email)
 
     conn
     |> redirect(to: ArWeeklyWeb.Router.Helpers.static_path(conn, "/images/tracking.jpg"))
@@ -68,11 +67,10 @@ defmodule ArWeeklyWeb.PageController do
   def track_issue_link(conn, %{"id" => enc_id}) do
     id = EmailService.arweekly_decode(enc_id)
     ids = String.split(id, "@@")
-    [issue_number, subscriber_email, link] = ids
-    link_tracking = Issues.get_link_tracking!(issue_number, subscriber_email, link)
+    [issue_number, email, link] = ids
 
-    if link_tracking == [],
-      do: Issues.create_link_tracking(issue_number, subscriber_email, link)
+    if not Analytics.is_link_tracked(issue_number, email, link),
+      do: Analytics.track_link(issue_number, email, link)
 
     conn
     |> redirect(external: link)
