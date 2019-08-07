@@ -8,14 +8,45 @@ defmodule ArWeekly.Subscribers do
 
   alias ArWeekly.Subscribers.Subscriber
   alias ArWeekly.Subscribers.SignUp
+  alias ArWeekly.Issues.IssueSubscriber
 
-  def list_active() do
-    from(s in Subscriber, where: s.is_active)
+  def get_subscribers_batch_for_issue(:prod, latest_issue_id) do
+    subs_done =
+      from is in IssueSubscriber,
+        join: s in Subscriber,
+        on: is.subscriber_id == s.id,
+        where: is.issue_id == ^latest_issue_id,
+        where: s.is_active,
+        where: not s.is_beta,
+        select: %{id: is.subscriber_id, email: s.email}
+
+    from(s in Subscriber,
+      select: %{id: s.id, email: s.email},
+      where: s.is_active,
+      where: not s.is_beta,
+      except_all: ^subs_done,
+      limit: 80
+    )
     |> Repo.all()
   end
 
-  def list_active_betas() do
-    from(s in Subscriber, where: s.is_active and s.is_beta)
+  def get_subscribers_batch_for_issue(:beta, latest_issue_id) do
+    subs_done =
+      from is in IssueSubscriber,
+        join: s in Subscriber,
+        on: is.subscriber_id == s.id,
+        where: is.issue_id == ^latest_issue_id,
+        where: s.is_active,
+        where: s.is_beta,
+        select: %{id: is.subscriber_id, email: s.email}
+
+    from(s in Subscriber,
+      select: %{id: s.id, email: s.email},
+      where: s.is_active,
+      where: s.is_beta,
+      except_all: ^subs_done,
+      limit: 80
+    )
     |> Repo.all()
   end
 

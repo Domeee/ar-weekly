@@ -14,16 +14,26 @@ defmodule ArWeekly.Issues do
 
   ## Examples
 
-      iex> create_issue(%{field: value})
+      iex> create_issue(~D[2019-08-07])
       {:ok, %Issue{}}
 
-      iex> create_issue(%{field: bad_value})
+      iex> create_issue(bad_value)
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_issue(attrs \\ %{}) do
+  def create_issue(target \\ :beta, issue_date \\ Timex.today()) do
+    issue_number =
+      ArWeekly.Issues.get_latest()
+      |> get_issue_number(target)
+
     %Issue{}
-    |> Issue.changeset(attrs)
+    |> Issue.changeset(%{number: issue_number, date: issue_date})
+    |> Repo.insert()
+  end
+
+  def create_issue_subscriber(attrs \\ %{}) do
+    %ArWeekly.Issues.IssueSubscriber{}
+    |> ArWeekly.Issues.IssueSubscriber.changeset(attrs)
     |> Repo.insert()
   end
 
@@ -31,7 +41,7 @@ defmodule ArWeekly.Issues do
     query =
       from i in Issue,
         where: fragment("? IN (SELECT MAX(inserted_at) FROM issues)", i.inserted_at),
-        select: %{number: i.number, date: i.date}
+        select: %{id: i.id, number: i.number, date: i.date}
 
     Repo.one(query)
   end
@@ -41,35 +51,21 @@ defmodule ArWeekly.Issues do
     latest_issue = ArWeekly.Issues.get_latest()
 
     if latest_issue do
-      process_release(latest_issue.number, latest_issue.date, [sub])
+      process_release(latest_issue, [sub])
     end
   end
 
   # Create a new issue and send to all subs (:prod -> all, :beta -> beta testers only)
-  def release(target \\ :beta, issue_date \\ Timex.today())
+  def release(target \\ :beta)
 
-  def release(target, issue_date) do
-    subs = get_subscribers(target)
-
-    issue_number =
-      ArWeekly.Issues.get_latest()
-      |> get_issue_number(target)
-
-    process_release(issue_number, issue_date, subs)
-
-    create_issue(%{number: issue_number, date: issue_date})
+  def release(target) do
+    latest_issue = ArWeekly.Issues.get_latest()
+    subs = ArWeekly.Subscribers.get_subscribers_batch_for_issue(target, latest_issue.id)
+    process_release(latest_issue, subs)
   end
 
-  defp get_subscribers(:prod) do
-    ArWeekly.Subscribers.list_active()
-  end
-
-  defp get_subscribers(_) do
-    ArWeekly.Subscribers.list_active_betas()
-  end
-
-  defp process_release(issue_number, issue_date, subs) do
-    issue_filename = Timex.format!(issue_date, "{YYYY}-{M}-{D}")
+  defp process_release(issue, subs) do
+    issue_filename = Timex.format!(issue.date, "{YYYY}-{M}-{D}")
 
     html_template =
       Application.app_dir(:ar_weekly, "priv/ar_weekly_issues") <>
@@ -78,7 +74,7 @@ defmodule ArWeekly.Issues do
     subs
     |> Enum.each(fn sub ->
       tracking_id =
-        ArWeekly.EmailService.arweekly_encode(to_string(issue_number) <> "@@" <> sub.email)
+        ArWeekly.EmailService.arweekly_encode(to_string(issue.number) <> "@@" <> sub.email)
 
       unsubscribe_url =
         ArWeeklyWeb.Router.Helpers.page_url(
@@ -90,11 +86,11 @@ defmodule ArWeekly.Issues do
       html =
         EEx.eval_file(html_template,
           assigns: [
-            issue_number: issue_number,
-            issue_date: issue_date,
-            issue_date_from: Timex.shift(issue_date, days: -7),
-            issue_date_to: Timex.shift(issue_date, days: -1),
-            next_issue_date: Timex.shift(issue_date, days: 7),
+            issue_number: issue.number,
+            issue_date: issue.date,
+            issue_date_from: Timex.shift(issue.date, days: -7),
+            issue_date_to: Timex.shift(issue.date, days: -1),
+            next_issue_date: Timex.shift(issue.date, days: 7),
             unsubscribe_url: unsubscribe_url,
             privacy_url: ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :privacy),
             issue_tracking_url:
@@ -111,14 +107,14 @@ defmodule ArWeekly.Issues do
       ArWeekly.EmailService.send_email(
         sub.email,
         {"AR Weekly", "hello@ar-weekly.blog"},
-        "AR Weekly Newsletter Issue ##{issue_number}",
+        "AR Weekly Newsletter Issue ##{issue.number}",
         Premailex.to_inline_css(html),
         Premailex.to_text(html),
         unsubscribe_url
       )
-    end)
 
-    issue_number
+      create_issue_subscriber(%{subscriber_id: sub.id, issue_id: issue.id})
+    end)
   end
 
   defp get_issue_number(nil, _) do
