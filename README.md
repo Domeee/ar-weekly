@@ -64,14 +64,30 @@ Code.eval_file(seed_script)
 
 ```sh
 iex -S mix
-ArWeekly.Issues.release(:beta, ~D[2019-01-21] \\ Timex.today())
+
+# Create issue
+ArWeekly.Issues.create_issue(:beta, ~D[2019-01-21] \\ Timex.today())
+
+# Send first batch of 80 subscribers
+ArWeekly.Issues.release(:beta)
+
+# Send next batch of 80 subscribers
+ArWeekly.Issues.release(:beta)
 ```
 
 ### Test release @ production
 
 ```sh
 gigalixir ps:remote_console
-ArWeekly.Issues.release(:prod, ~D[2019-01-21] \\ Timex.today())
+
+# Create issue
+ArWeekly.Issues.create_issue(:prod, ~D[2019-01-21] \\ Timex.today())
+
+# Send first batch of 80 subscribers
+ArWeekly.Issues.release(:prod)
+
+# Send next batch of 80 subscribers
+ArWeekly.Issues.release(:prod)
 ```
 
 ## Contribute
