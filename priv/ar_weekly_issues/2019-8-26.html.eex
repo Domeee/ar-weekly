@@ -100,7 +100,7 @@
         </tr>
         <tr>
           <td class="pb-s">
-            Current state of the art devices like HoloLens 2 and Magic Leap One rely on dedicated depth and motion sensors for hand tracking. Last week Google previewed a research project that implements software based hand tracking. The technology relies on three distinct machine learning models - a palm detector model, a hand landmark model, and a gesture recognizer. The software-based approach is particularly interesting for smartglasses where the weight and battery life requirements are very high.
+            Current state of the art devices like HoloLens 2 and Magic Leap One rely on dedicated depth and motion sensors for hand tracking. Last week Google previewed a research project that implements software based hand tracking. The technology relies on three distinct machine learning models - a palm detector model, a hand landmark model, and a gesture recognizer. The software-based approach is particularly interesting for smartglasses where weight and battery life requirements are very high.
           </td>
         </tr>
         <tr>
@@ -120,7 +120,7 @@
         </tr>
         <tr>
           <td class="pb-s">
-            Although the hardware landscape ist still very limited at the moment, there are several interesting games in the making. Sonic Samurai by Happy Giant places the user in the middle of a samurai fight guided by audio clues. Unscramble the Oracle by XEODesign is an interactive audiobook and War of the Worlds by Quirkeley is part podcast and part game leading the user through an escape from aliens via audio signals.
+            Although the audio AR hardware landscape is still very limited at the moment, there are several interesting games in the making. Sonic Samurai by Happy Giant places the user in the middle of a samurai fight guided by audio clues. Unscramble the Oracle by XEODesign is an interactive audiobook and War of the Worlds by Quirkeley is part podcast and part game leading the user through an escape from aliens via audio signals.
           </td>
         </tr>
         <tr>
@@ -140,7 +140,7 @@
         </tr>
         <tr>
           <td class="pb-s">
-            Release 12 increases the limit for image targets per project to 1,000 images. Of those 1,000 image targets, a project may scan for up to 10 images concurrently. Furthermore the front-facing camera can be used for image target detection from now on. Further updates are the supported integration of 8th Wall projects in the web-based game engine PlayCanvas and the self-serve controls for commercial campaigns.
+            Release 12 increases the limit for image targets per project to 1,000 images. Of those 1,000 image targets, a project may scan for up to 10 images concurrently. Furthermore the front-facing camera can be used for image target detection. Further updates are the supported integration of 8th Wall projects in the web-based game engine PlayCanvas and the self-serve controls for commercial campaigns.
           </td>
         </tr>
         <tr>
