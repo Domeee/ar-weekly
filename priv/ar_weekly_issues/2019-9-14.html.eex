@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 16px;
+        line-height: 24px;
+        color: rgba(0, 0, 0, 0.8);
+      }
+      table {
+        max-width: 600px;
+        padding: 0 12px 24px 12px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      tr {
+        text-align: left;
+      }
+      hr {
+        color: #2c3e50;
+      }
+      a {
+        color: #ca3827;
+      }
+      a:link {
+        color: #ca3827;
+      }
+      a:visited {
+        color: #4c6259;
+      }
+      a:hover {
+        color: #ca3827;
+      }
+      a:active {
+        color: #ca3827;
+      }
+      .article-title {
+        margin: 0;
+        font-size: 22px;
+        font-weight: bold;
+        color: #2c3e50;
+      }
+      .text-centered {
+        text-align: center;
+      }
+      .pb-s {
+        padding-bottom: 12px;
+      }
+      .pb-m {
+        padding-bottom: 24px;
+      }
+      .pb-l {
+        padding-bottom: 48px;
+      }
+      .pb-xl {
+        padding-bottom: 56px;
+      }
+      .color-main {
+        color: #2c3e50;
+      }
+      .font-s {
+        font-size: 12px;
+      }
+    </style>
+    <title>AR Weekly</title>
+  </head>
+  <body>
+    <table class="text-centered">
+      <tbody>
+        <tr>
+          <td class="text-centered">
+            <img
+              src="<%= @logo_url %>"
+              alt="AR Weekly"
+              width="100px"
+              height="100px"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td class="text-centered font-s pb-xl">
+            Issue #<%= @issue_number %>, <%= Timex.format!(@issue_date, "{D} {Mfull} {YYYY}") %>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-xl">
+            Hello guys! This digest covers Augmented Reality related news between <%= Timex.format!(@issue_date_from, "{D} {Mfull}") %> and <%= Timex.format!(@issue_date_to, "{D} {Mfull}") %>. Enjoy!
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              ARCore Update and Early Access to Persisted Cloud Anchors
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            Google announced two updates for ARCore this week. The Augmented Faces API, a 468-point 3D mesh with functionality to create face effects à la Snapchat, is now also supported on iOS devices. The Cloud Anchors API hosting and resolving of anchors is more efficient and robust. Furthermore Google is looking for collaborators to test persistent cloud anchors, an upcoming feature to save AR experiences within the AR Cloud.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://developers.googleblog.com/2019/09/arcore-updates-to-augmented-faces-and.html")) %>'
+              >https://developers.googleblog.com</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              Next Reality's 30 People to Watch in AR
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            Next Reality published a rather extensive but very interesting list of individuals that demonstrated clear success in bringing AR forward.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://next.reality.news/news/nr30-next-realitys-30-people-watch-augmented-reality-for-2019-0204727")) %>'
+              >https://next.reality.news</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              Time Magazine Showcases Immersive Story Telling
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            From time to time the Time Magazine publishes AR enabled stories in its TIME Immersive app. The latest update, "Inside the Amazon: the Dying Forest", presents the story of indigenous tribes and their struggle to halt the encroachment of illegal logging.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://time.com/longform/inside-amazon-rain-forest-vr-app")) %>'
+              >https://time.com</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m">
+            <h1 class="article-title">
+              AR Headset Sales to Grow to 2.89 Million in 2023
+            </h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            ARtillery Intelligence projects that AR headset sales, enterprise and consumer devices combined, will grow to 2.89 million devices by 2023. The main reason for the lower as expected growth is partly due to pace of adoption and lower estimates in AR revenue. In the meantime, mobile with its 334 million active AR users, growing to 1.076 billion by 2023, is the near-term reach play for consumer products.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-l">
+          Source:
+          <a href='<%= ArWeeklyWeb.Router.Helpers.page_url(ArWeeklyWeb.Endpoint, :track_issue_link, ArWeekly.EmailService.arweekly_encode(to_string(@issue_number) <> "@@" <> @subscriber_email <> "@@" <> "https://arinsider.co/2019/09/11/5-million-ar-headsets-by-2023")) %>'
+              >https://arinsider.co</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-s">
+            Suggestions or comments are more than welcome! Just reply to this
+            email.
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-xl">
+            Thanks for reading<br />
+            <span class="color-main"><strong>AR</strong>&nbsp;Weekly</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="pb-m font-s">
+            You receive this Email because you are subscribed to the AR Weekly
+            Blog. Your next delivery is on <%= Timex.format!(@next_issue_date, "{D} {Mfull} {YYYY}") %>.
+          </td>
+        </tr>
+        <tr>
+          <td class="font-s">
+            <a href="<%= @unsubscribe_url %>">Unsubscribe</a>&nbsp;&nbsp;
+            |&nbsp;&nbsp;<a href="<%= @privacy_url %>">Privacy Policy</a
+            >&nbsp;&nbsp;|&nbsp;&nbsp;<a href="mailto:hello@ar-weekly.blog">hello@ar-weekly.blog</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://github.com/Domeee/ar-weekly">Source Code @ GitHub</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <img width="1px" height="1px" src="<%= @issue_tracking_url %>" alt="">
+  </body>
+</html>
