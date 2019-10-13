@@ -92,4 +92,4 @@ ArWeekly.Issues.release(:prod)
 
 ## Contribute
 
-Pull requests are warmly welcome.
+Pull requests are warmly welcome
